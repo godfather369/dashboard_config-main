@@ -841,10 +841,6 @@
 			{
 				"dimension":"AlertsCube.statuteStatus",
 				"filter": "docStatus"
-			},
-			{
-				"dimension":"AlertsCube.agencyUpdateStatus",
-				"filter":"alertCategory"
 			}
 		]
 	},
