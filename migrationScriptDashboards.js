@@ -16,17 +16,6 @@ let updateddashboardsCollection = dashboardsCollection.map((item) => {
 				widget["widgetId"] = widgetsCollection[i]["_id"];
 			}
 		}
-		let dropDownFilters = widget["dropDownFilters"];
-		if (dropDownFilters) {
-			dropDownFilters.forEach((dropDownFilter) => {
-				for (let j = 0; j < filtersCollection.length; j++) {
-					debugger;
-					if (dropDownFilter["filter"] === filtersCollection[j]["id"]) {
-						dropDownFilter["filter"] = filtersCollection[j]["_id"];
-					}
-				}
-			});
-		}
 	});
 
 	const widgetsItem = widgets.map((item) => {
