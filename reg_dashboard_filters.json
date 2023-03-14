@@ -2,7 +2,7 @@
 	{
 		"id": "alertCategoryAll",
 		"name": "i18n_LBL_ALL_ALERTS",
-		"category": "Alerts",
+		"category": "alertCategory",
 		"filter": {
 			"member": "AlertsCube.alertCategory",
 			"operator": "set",
@@ -12,7 +12,7 @@
 	{
 		"id": "alertCategoryBills",
 		"name": "i18n_LBL_ALERTS_BILLS",
-		"category": "Alerts",
+		"category": "alertCategory",
 		"filter": {
 			"member": "AlertsCube.alertCategory",
 			"operator": "equals",
@@ -24,7 +24,7 @@
 	{
 		"id": "alertCategoryLaws",
 		"name": "i18n_LBL_ALERTS_LAWS_AND_REGULATIONS",
-		"category": "Alerts",
+		"category": "alertCategory",
 		"filter": {
 			"member": "AlertsCube.alertCategory",
 			"operator": "equals",
@@ -36,7 +36,7 @@
 	{
 		"id": "alertCategoryNews",
 		"name": "i18n_LBL_ALERTS_AGENCY_UPDATES",
-		"category": "Alerts",
+		"category": "alertCategory",
 		"filter": {
 			"member": "AlertsCube.alertCategory",
 			"operator": "equals",
@@ -128,5 +128,153 @@
 				"News & Publications"
 			]
 		}
+	},
+	{
+		"id": "alertCategoryGeneric",
+		"name": "Alert category",
+		"category": "alertCategory",
+		"filter": {
+			"member": "AlertsCube.alertCategory",
+			"operator": "equals",
+			"values": []
+		},
+		"options": [
+			{
+				"label": "All Alerts",
+				"value": ""
+			},
+			{
+				"label": "Bills",
+				"value": "Bills"
+			},
+			{
+				"label": "Agency Updates",
+				"value": "News & Publications"
+			},
+			{
+				"label": "Regulatory Changes",
+				"value": "Laws & Regulations"
+			}
+		],
+		"type": "single"
+	},
+	{
+		"id": "alertStatusGeneric",
+		"name": "Alert Status",
+		"category": "status",
+		"filter": {
+			"member": "AlertsCube.status",
+			"operator": "equals",
+			"values": []
+		},
+		"options": [
+			{
+				"label": "Unread",
+				"value": "Unread"
+			},
+			{
+				"label": "In Process",
+				"value": "In Process"
+			},
+			{
+				"label": "Applicable",
+				"value": "Applicable"
+			},
+			{
+				"label": "Following",
+				"value": "Following"
+			}
+		],
+		"type": "multi"
+	},
+	{
+		"id": "corpusTypeGeneric",
+		"name": "corpus Type",
+		"category": "status",
+		"filter": {
+			"member": "AgencyCoverageCube.corpusType",
+			"operator": "equals",
+			"values": []
+		},
+		"options": [
+			{
+				"label": "All",
+				"value": ""
+			},
+			{
+				"label": "Bulletins/Reports",
+				"value": "Bulletins/Reports"
+			},
+			{
+				"label": "Calendar",
+				"value": "Calendar"
+			},
+			{
+				"label": "Enforcement Actions",
+				"value": "Enforcement Actions"
+			},
+			{
+				"label": "Information and Guidance",
+				"value": "Information and Guidance"
+			},
+			{
+				"label": "News/Press Releases",
+				"value": "News/Press Releases"
+			},
+			{
+				"label": "Public Notices",
+				"value": "Public Notices"
+			},
+			{
+				"label": "Publications/Communications",
+				"value": "Publications/Communications"
+			},
+			{
+				"label": "Rulemaking",
+				"value": "Rulemaking"
+			},
+			{
+				"label": "Settlements",
+				"value": "Settlements"
+			}
+		],
+		"type": "single"
+	},
+	{
+		"id": "billsDocStatusGeneric",
+		"name": "Doc Status",
+		"category": "docStatus",
+		"filter": {
+			"member": "AlertsCube.docStatus",
+			"operator": "equals",
+			"values": []
+		},
+		"options": [
+			{
+				"label": "Introduced",
+				"value": "Introduced"
+			},
+			{
+				"label": "Passed Body of Origin",
+				"value": "Passed Body of Origin"
+			},
+			{
+				"label": "Passed Second Body",
+				"value": "Passed Second Body"
+			},
+			{
+				"label": "Sent for Signature",
+				"value": "Sent for Signature"
+			},
+			{
+				"label": "Became Law",
+				"value": "Became Law"
+			},
+			{
+				"label": "Died",
+				"value": "Died"
+			}
+		],
+		"type": "multi"
 	}
 ]

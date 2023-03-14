@@ -134,6 +134,21 @@
 					"bar"
 				],
 				"defaultTimeFilter": "Last 90 days"
+			},
+			{
+				"layout": {
+					"x": 0,
+					"y": 10,
+					"w": 12,
+					"h": 2
+				},
+				"widgetId": "AgencyJurisdictionDocumentStatus",
+				"viewType": [
+					"map",
+					"column",
+					"table"
+				],
+				"defaultTimeFilter": "Last 90 days"
 			}
 		]
 	},
@@ -389,6 +404,21 @@
 					"table"
 				],
 				"defaultTimeFilter": "Last 4 quarters"
+			},
+			{
+				"layout": {
+					"x": 0,
+					"y": 6,
+					"w": 12,
+					"h": 2
+				},
+				"widgetId": "AgencyJurisdictionDocumentStatus",
+				"viewType": [
+					"map",
+					"column",
+					"table"
+				],
+				"defaultTimeFilter": "Last 90 days"
 			}
 		]
 	},
@@ -619,6 +649,44 @@
 					"table"
 				],
 				"defaultTimeFilter": "Last 90 days"
+			}
+		]
+	},
+	{
+		"id": "WorkflowSLA",
+		"category": "SLA",
+		"description": "Overview of all SLA widgets",
+		"name": "Workflow SLA",
+		"type": "System",
+		"order": 8,
+		"widgets": [
+			{
+				"layout": {
+					"x": 0,
+					"y": 0,
+					"w": 12,
+					"h": 2
+				},
+				"widgetId": "AlertsApplicability",
+				"viewType": [
+					"table",
+					"bar"
+				],
+				"defaultTimeFilter": "> 30 days"
+			},
+			{
+				"layout": {
+					"x": 6,
+					"y": 2,
+					"w": 12,
+					"h": 2
+				},
+				"widgetId": "ImpactAssessmentApplicability",
+				"viewType": [
+					"table",
+					"bar"
+				],
+				"defaultTimeFilter": "> 30 days"
 			}
 		]
 	}

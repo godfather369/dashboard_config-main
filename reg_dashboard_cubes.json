@@ -21,6 +21,13 @@
 				{
 					"member": "AlertsByTopic.grpName",
 					"operator": "set"
+				},
+				{
+					"member": "AlertsByTopic.totalCount",
+					"operator": "notEquals",
+					"values": [
+						"0"
+					]
 				}
 			],
 			"limit": 10,
@@ -60,6 +67,15 @@
 			{
 				"dimension": "AlertsByTopic.publishedDate",
 				"filter": "publishedDate"
+			},
+			{
+				"dimension": "AlertsByTopic.grpName",
+				"filter": "mdIds",
+				"cubejsQuery": {
+					"dimensions": [
+						"AlertsByTopic.grpIds"
+					]
+				}
 			}
 		]
 	},
@@ -136,7 +152,8 @@
 			"measures": [
 				"AlertsCube.unread",
 				"AlertsCube.inProcess",
-				"AlertsCube.applicable"
+				"AlertsCube.applicable",
+				"AlertsCube.following"
 			],
 			"dimensions": [],
 			"segments": [],
@@ -182,6 +199,10 @@
 				"langKey": "i18n_LBL_ALERTS_IN_PROCESS"
 			},
 			{
+				"entity": "AlertsCube.following",
+				"langKey": "i18n_LBL_ALERTS_FOLLOWING"
+			},
+			{
 				"entity": "AlertsCube.publishedDate",
 				"langKey": "i18n_LBL_ALERTS_PUBLISHED_DATE"
 			}
@@ -205,6 +226,10 @@
 				"filter": "status"
 			},
 			{
+				"dimension": "AlertsCube.following",
+				"filter": "status"
+			},
+			{
 				"dimension": "AlertsCube.applicable",
 				"filter": "status"
 			}
@@ -219,6 +244,7 @@
 				"AlertsCube.unread",
 				"AlertsCube.inProcess",
 				"AlertsCube.applicable",
+				"AlertsCube.following",
 				"AlertsCube.totalCount"
 			],
 			"dimensions": [
@@ -252,6 +278,10 @@
 					"desc"
 				],
 				[
+					"AlertsCube.following",
+					"desc"
+				],
+				[
 					"AlertsCube.totalCount",
 					"desc"
 				]
@@ -277,6 +307,10 @@
 			{
 				"entity": "AlertsCube.inProcess",
 				"langKey": "i18n_LBL_ALERTS_IN_PROCESS"
+			},
+			{
+				"entity": "AlertsCube.following",
+				"langKey": "i18n_LBL_ALERTS_FOLLOWING"
 			},
 			{
 				"entity": "AlertsCube.applicable",
@@ -307,6 +341,10 @@
 				"filter": "status"
 			},
 			{
+				"dimension": "AlertsCube.following",
+				"filter": "status"
+			},
+			{
 				"dimension": "AlertsCube.applicable",
 				"filter": "status"
 			}
@@ -321,6 +359,7 @@
 				"AlertsCube.unread",
 				"AlertsCube.inProcess",
 				"AlertsCube.applicable",
+				"AlertsCube.following",
 				"AlertsCube.totalCount"
 			],
 			"timeDimensions": [
@@ -340,6 +379,13 @@
 				{
 					"member": "AlertAgencyNamesCube.agencyNames",
 					"operator": "set"
+				},
+				{
+					"member": "AlertsCube.totalCount",
+					"operator": "notEquals",
+					"values": [
+						"0"
+					]
 				}
 			],
 			"dimensions": [
@@ -373,6 +419,10 @@
 				"langKey": "i18n_LBL_ALERTS_APPLICABLE"
 			},
 			{
+				"entity": "AlertsCube.following",
+				"langKey": "i18n_LBL_ALERTS_FOLLOWING"
+			},
+			{
 				"entity": "AlertsCube.totalCount",
 				"langKey": "i18n_LBL_ALERTS_TOTAL_COUNT"
 			},
@@ -401,6 +451,10 @@
 				"filter": "status"
 			},
 			{
+				"dimension": "AlertsCube.following",
+				"filter": "status"
+			},
+			{
 				"dimension": "AlertsCube.applicable",
 				"filter": "status"
 			}
@@ -415,6 +469,7 @@
 				"AlertsByOwnersCube.unread",
 				"AlertsByOwnersCube.inProcess",
 				"AlertsByOwnersCube.applicable",
+				"AlertsByOwnersCube.following",
 				"AlertsByOwnersCube.totalCount"
 			],
 			"dimensions": [
@@ -431,6 +486,13 @@
 				{
 					"operator": "set",
 					"member": "Users.fullName"
+				},
+				{
+					"member": "AlertsByOwnersCube.totalCount",
+					"operator": "notEquals",
+					"values": [
+						"0"
+					]
 				}
 			],
 			"limit": 1000,
@@ -471,6 +533,10 @@
 				"entity": "AlertsByOwnersCube.inProcess"
 			},
 			{
+				"langKey": "i18n_LBL_ALERTS_FOLLOWING",
+				"entity": "AlertsByOwnersCube.following"
+			},
+			{
 				"langKey": "i18n_LBL_OWNERS_FULL_NAME",
 				"entity": "Users.fullName"
 			}
@@ -497,6 +563,10 @@
 			},
 			{
 				"dimension": "AlertsByOwnersCube.inProcess",
+				"filter": "status"
+			},
+			{
+				"dimension": "AlertsByOwnersCube.following",
 				"filter": "status"
 			},
 			{
@@ -639,6 +709,7 @@
 				"AlertsCube.unreadBillsCount",
 				"AlertsCube.inProcessBillsCount",
 				"AlertsCube.applicableBillsCount",
+				"AlertsCube.followingBillsCount",
 				"AlertsCube.totalBillsCount"
 			],
 			"dimensions": [
@@ -651,7 +722,13 @@
 					"dateRange": "Last 30 days"
 				}
 			],
-			"filters": [],
+			"filters": [
+				{
+					"member": "AlertsCube.totalBillsCount",
+					"operator": "notEquals",
+					"values": ["0"]
+				}
+			],
 			"limit": 1000,
 			"order": [
 				[
@@ -690,6 +767,10 @@
 				"entity": "AlertsCube.inProcessBillsCount"
 			},
 			{
+				"langKey": "i18n_LBL_ALERTS_FOLLOWING",
+				"entity": "AlertsCube.followingBillsCount"
+			},
+			{
 				"langKey": "i18n_LBL_ALERTS_JURISDICTION_NAME",
 				"entity": "JurisdictionsCube.displayName"
 			}
@@ -707,6 +788,10 @@
 			},
 			{
 				"dimension": "AlertsCube.inProcessBillsCount",
+				"filter": "status"
+			},
+			{
+				"dimension": "AlertsCube.followingBillsCount",
 				"filter": "status"
 			},
 			{
@@ -835,11 +920,11 @@
 				"filter": "docStatus"
 			},
 			{
-				"dimension":"AlertsCube.regulationStatus",
+				"dimension": "AlertsCube.regulationStatus",
 				"filter": "docStatus"
 			},
 			{
-				"dimension":"AlertsCube.statuteStatus",
+				"dimension": "AlertsCube.statuteStatus",
 				"filter": "docStatus"
 			}
 		]
@@ -931,31 +1016,31 @@
 		],
 		"applicableFilters": [],
 		"routerParams": [
-		{
+			{
 				"dimension": "JurisdictionsCube.displayName",
 				"filter": "jurisdictions",
 				"api": "/regulation/jurisdictionByName"
-		},
-    {
+			},
+			{
 				"dimension": "AlertsCube.introducedBills",
 				"filter": "docStatus"
-		},
-		{
+			},
+			{
 				"dimension": "AlertsCube.passedOriginBills",
 				"filter": "docStatus"
-		},
-		{
+			},
+			{
 				"dimension": "AlertsCube.passedSecondBodyBills",
 				"filter": "docStatus"
-		},
-		{
+			},
+			{
 				"dimension": "AlertsCube.sentForSignatureBills",
 				"filter": "docStatus"
-		},
-		{
+			},
+			{
 				"dimension": "AlertsCube.becameLawBills",
 				"filter": "docStatus"
-		}
+			}
 		]
 	},
 	{
@@ -1659,6 +1744,7 @@
 				"AlertsByGroupsCube.unread",
 				"AlertsByGroupsCube.inProcess",
 				"AlertsByGroupsCube.applicable",
+				"AlertsByGroupsCube.following",
 				"AlertsByGroupsCube.totalCount"
 			],
 			"dimensions": [
@@ -1715,6 +1801,10 @@
 				"entity": "AlertsByGroupsCube.inProcess"
 			},
 			{
+				"langKey": "i18n_LBL_ALERTS_FOLLOWING",
+				"entity": "AlertsByGroupsCube.following"
+			},
+			{
 				"langKey": "i18n_LBL_GROUP_NAME",
 				"entity": "AlertsByGroupsCube.name"
 			}
@@ -1745,6 +1835,10 @@
 			},
 			{
 				"dimension": "AlertsByGroupsCube.inProcess",
+				"filter": "status"
+			},
+			{
+				"dimension": "AlertsByGroupsCube.following",
 				"filter": "status"
 			},
 			{
@@ -2102,6 +2196,301 @@
 			{
 				"langKey": "i18n_LBL_ALERTS_JURISDICTION_NAME",
 				"entity": "CoverageByJurisdictionCube.jurisdictionName"
+			}
+		],
+		"applicableFilters": [],
+		"routerParams": []
+	},
+	{
+		"id": "AgencyFeedCoverage",
+		"category": "Coverage",
+		"name": "Agency Feed Coverage",
+		"query": {
+			"measures": [
+				"AgencyCoverageCube.count"
+			],
+			"timeDimensions": [],
+			"order": [
+				[
+					"AgencyCoverageCube.jurisdictionName",
+					"asc"
+				]
+			],
+			"dimensions": [
+				"AgencyCoverageCube.jurisdictionName"
+			],
+			"filters": [
+				{
+					"member": "AgencyCoverageCube.jurisdictionName",
+					"operator": "set"
+				}
+			]
+		},
+		"meta": {
+			"pivotConfig": {
+				"joinDateRange": false,
+				"fillMissingDates": true,
+				"y": [
+					"measures"
+				],
+				"x": [
+					"AgencyCoverageCube.jurisdictionName",
+					"AgencyCoverageCube.corpusType"
+				]
+			}
+		},
+		"langMapping": [
+			{
+				"langKey": "i18n_LBL_CONST_TOTAL",
+				"entity": "AgencyCoverageCube.count"
+			},
+			{
+				"langKey": "i18n_LBL_ALERTS_JURISDICTION_NAME",
+				"entity": "AgencyCoverageCube.jurisdictionName"
+			},
+			{
+				"langKey": "i18n_LBL_ALERTS_CORPUS_TYPE",
+				"entity": "AgencyCoverageCube.corpusType"
+			}
+		],
+		"applicableFilters": [],
+		"routerParams": []
+	},
+	{
+		"id": "AgencyJurisdictionDocumentStatus",
+		"category": "Alerts",
+		"name": "Agency by Jurisdiction by Document Status",
+		"query": {
+			"dimensions": [
+				"JurisdictionsCube.displayName"
+			],
+			"timeDimensions": [
+				{
+					"dimension": "AlertsCube.publishedDate",
+					"dateRange": "This year"
+				}
+			],
+			"order": [
+				[
+					"JurisdictionsCube.displayName",
+					"asc"
+				]
+			],
+			"measures": [
+				"AlertsCube.bulletinsReportCount",
+				"AlertsCube.calendarCount",
+				"AlertsCube.enfActionsCount",
+				"AlertsCube.feedDocStatus",
+				"AlertsCube.infoGuidanceCount",
+				"AlertsCube.newsPressCount",
+				"AlertsCube.noticeCount",
+				"AlertsCube.proposedRuleCount",
+				"AlertsCube.publicNoticesCount",
+				"AlertsCube.publicationCommCount",
+				"AlertsCube.ruleCount",
+				"AlertsCube.ruleMakingCount",
+				"AlertsCube.settlementsCount",
+				"AlertsCube.totalAUDocStatusCount"
+			],
+			"filters": [
+				{
+					"member": "JurisdictionsCube.displayName",
+					"operator": "set"
+				}
+			]
+		},
+		"meta": {
+			"pivotConfig": {
+				"joinDateRange": false,
+				"fillMissingDates": true,
+				"y": [
+					"measures"
+				],
+				"x": [
+					"JurisdictionsCube.displayName"
+				]
+			}
+		},
+		"langMapping": [
+			{
+				"langKey": "i18n_LBL_ALERTS_JURISDICTION_NAME",
+				"entity": "JurisdictionsCube.displayName"
+			},
+			{
+				"langKey": "i18n_LBL_ALERTS_BULLETIN_REPORT_COUNT",
+				"entity": "AlertsCube.bulletinsReportCount"
+			},
+			{
+				"langKey": "i18n_LBL_ALERTS_CALENDAR_COUNT",
+				"entity": "AlertsCube.calendarCount"
+			},
+			{
+				"langKey": "i18n_LBL_ALERTS_ENF_ACTIONS_COUNT",
+				"entity": "AlertsCube.enfActionsCount"
+			},
+			{
+				"langKey": "i18n_LBL_ALERTS_FEED_NAME",
+				"entity": "AlertsCube.feedDocStatus"
+			},
+			{
+				"langKey": "i18n_LBL_ALERTS_INFO_GUIDANCE_COUNT",
+				"entity": "AlertsCube.infoGuidanceCount"
+			},
+			{
+				"langKey": "i18n_LBL_ALERTS_NEWS_PRESS_COUNT",
+				"entity": "AlertsCube.newsPressCount"
+			},
+			{
+				"langKey": "i18n_LBL_ALERTS_NOTICE_COUNT",
+				"entity": "AlertsCube.noticeCount"
+			},
+			{
+				"langKey": "i18n_LBL_ALERTS_PROPOSED_RULE_COUNT",
+				"entity": "AlertsCube.proposedRuleCount"
+			},
+			{
+				"langKey": "i18n_LBL_ALERTS_PUBLIC_NOTICE_COUNT",
+				"entity": "AlertsCube.publicNoticesCount"
+			},
+			{
+				"langKey": "i18n_LBL_ALERTS_PUBLICATION_COUNT",
+				"entity": "AlertsCube.publicationCommCount"
+			},
+			{
+				"langKey": "i18n_LBL_ALERTS_RULE_COUNT",
+				"entity": "AlertsCube.ruleCount"
+			},
+			{
+				"langKey": "i18n_LBL_ALERTS_RULE_MAKING_COUNT",
+				"entity": "AlertsCube.ruleMakingCount"
+			},
+			{
+				"langKey": "i18n_LBL_ALERTS_SETTLEMENT_COUNT",
+				"entity": "AlertsCube.settlementsCount"
+			},
+			{
+				"langKey": "i18n_LBL_CONST_TOTAL",
+				"entity": "AlertsCube.totalAUDocStatusCount"
+			}
+		],
+		"applicableFilters": [],
+		"routerParams": []
+	},
+	{
+		"id": "AlertsApplicability",
+		"category": "Coverage",
+		"name": "Alerts Applicability",
+		"query": {
+			"measures": [
+				"AlertsByOwnersCube.open",
+				"AlertsByOwnersCube.closed"
+			],
+			"timeDimensions": [
+				{
+					"dimension": "AlertsByOwnersCube.created",
+					"dateRange": "Last 30 days"
+				}
+			],
+			"dimensions": [
+				"Users.fullName"
+			],
+			"filters": [
+				{
+					"member": "Users.fullName",
+					"operator": "set"
+				}
+			],
+			"order": [
+				[
+					"AlertsByOwnersCube.open",
+					"desc"
+				]
+			]
+		},
+		"meta": {
+			"pivotConfig": {
+				"joinDateRange": false,
+				"fillMissingDates": true,
+				"y": [
+					"measures"
+				],
+				"x": [
+					"Users.fullName"
+				]
+			}
+		},
+		"langMapping": [
+			{
+				"langKey": "i18n_LBL_OWNERS_FULL_NAME",
+				"entity": "Users.fullName"
+			},
+			{
+				"langKey": "i18n_LBL_OPEN",
+				"entity": "AlertsByOwnersCube.open"
+			},
+			{
+				"langKey": "i18n_LBL_CLOSED",
+				"entity": "AlertsByOwnersCube.closed"
+			}
+		],
+		"applicableFilters": [],
+		"routerParams": []
+	},
+	{
+		"id": "ImpactAssessmentApplicability",
+		"category": "Coverage",
+		"name": "Impact Assessment Applicability",
+		"query": {
+			"measures": [
+				"ImpactAssessmentCube.open",
+				"ImpactAssessmentCube.closed"
+			],
+			"timeDimensions": [
+				{
+					"dimension": "ImpactAssessmentCube.created",
+					"dateRange": "Last 30 days"
+				}
+			],
+			"dimensions": [
+				"Users.fullName"
+			],
+			"filters": [
+				{
+					"member": "Users.fullName",
+					"operator": "set"
+				}
+			],
+			"order": [
+				[
+					"ImpactAssessmentCube.open",
+					"desc"
+				]
+			]
+		},
+		"meta": {
+			"pivotConfig": {
+				"joinDateRange": false,
+				"fillMissingDates": true,
+				"y": [
+					"measures"
+				],
+				"x": [
+					"Users.fullName"
+				]
+			}
+		},
+		"langMapping": [
+			{
+				"langKey": "i18n_LBL_OWNERS_FULL_NAME",
+				"entity": "Users.fullName"
+			},
+			{
+				"langKey": "i18n_LBL_OPEN",
+				"entity": "ImpactAssessmentCube.open"
+			},
+			{
+				"langKey": "i18n_LBL_CLOSED",
+				"entity": "ImpactAssessmentCube.closed"
 			}
 		],
 		"applicableFilters": [],

@@ -296,7 +296,7 @@
 		"filters": [
 			"alertCategoryNews"
 		],
-		"baseUrl": ""
+		"baseUrl": "/alerts/agency-updates"
 	},
 	{
 		"id": "AgencyUpdatesAgencyFeed",
@@ -336,10 +336,8 @@
 			"bar"
 		],
 		"dropDownFilters": [
-			"alertCategoryAll",
-			"alertCategoryBills",
-			"alertCategoryLaws",
-			"alertCategoryNews"
+			"alertCategoryGeneric",
+			"alertStatusGeneric"
 		],
 		"cube": "AlertsJurisdictionDocumentStatus",
 		"defaultTimeFilter": "Last 90 days",
@@ -354,6 +352,10 @@
 			"map",
 			"table",
 			"bar"
+		],
+		"dropDownFilters": [
+			"alertStatusGeneric",
+			"billsDocStatusGeneric"
 		],
 		"cube": "BillsDocStatus",
 		"defaultTimeFilter": "Last 90 days",
@@ -616,5 +618,62 @@
 		],
 		"cube": "ComplianceCoverage",
 		"baseUrl": ""
+	},
+	{
+		"id": "AgencyJurisdictionDocumentStatus",
+		"description": "Displays all Agency updates by document status and jurisdiction",
+		"name": "Agency Updates by Jurisdiction by Document Status",
+		"type": "System",
+		"viewType": [
+			"map",
+			"column",
+			"table"
+		],
+		"filters": [
+			"alertCategoryNews"
+		],
+		"cube": "AgencyJurisdictionDocumentStatus",
+		"defaultTimeFilter": "Last 90 days"
+	},
+	{
+		"id": "AgencyFeedCoverage",
+		"description": "Shows the corpus types of agency feeds by jurisdiction.",
+		"name": "Agency Feed Coverage",
+		"type": "System",
+		"viewType": [
+			"table",
+			"map"
+		],
+		"dropDownFilters": [
+			"corpusTypeGeneric"
+		],
+		"cube": "AgencyFeedCoverage",
+		"baseUrl": ""
+	},
+	{
+		"id": "AlertsApplicability",
+		"description": "Shows the alerts by workflow stage for the selected SLA period.",
+		"name": "Alert Applicability SLA",
+		"type": "System",
+		"viewType": [
+			"table",
+			"bar"
+		],
+		"cube": "AlertsApplicability",
+		"baseUrl": "",
+		"defaultTimeFilter": "> 30 days"
+	},
+	{
+		"id": "ImpactAssessmentApplicability",
+		"description": "Shows the impact assessments whose workflow stage is Open or Closed for the selected SLA period.",
+		"name": "Impact Assessment SLA",
+		"type": "System",
+		"viewType": [
+			"table",
+			"bar"
+		],
+		"cube": "ImpactAssessmentApplicability",
+		"baseUrl": "",
+		"defaultTimeFilter": "> 30 days"
 	}
 ]
