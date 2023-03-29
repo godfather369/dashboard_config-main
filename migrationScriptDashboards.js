@@ -2,7 +2,6 @@ var fs = require("fs");
 
 const dashboardsCollection = require("./reg_dashboards");
 const widgetsCollection = require("./reg_dashboard_widgets.json");
-const filtersCollection = require("./reg_dashboard_filters");
 const { myTenantId } = require("./constants");
 
 const { ObjectId } = require("mongodb");

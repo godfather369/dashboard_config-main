@@ -1,7 +1,7 @@
 [
 	{
 		"id": "AlertsByRegulation",
-		"description": "Displays the total number of alerts for each topic/regulation.",
+		"description": "Displays the total number of alerts for each topic/masterdata",
 		"name": "Alerts by Topic",
 		"type": "System",
 		"viewType": [
@@ -10,7 +10,7 @@
 		],
 		"cube": "AlertsByRegulation",
 		"defaultTimeFilter": "Last 90 days",
-		"baseUrl": ""
+		"baseUrl": "/alerts/all-alerts"
 	},
 	{
 		"id": "RegulatoryChangesTopic",
@@ -26,7 +26,7 @@
 		"filters": [
 			"alertTopicLaws"
 		],
-		"baseUrl": ""
+		"baseUrl": "/alerts/regulatory-changes"
 	},
 	{
 		"id": "AlertsByCorpus",
@@ -652,7 +652,7 @@
 	},
 	{
 		"id": "AlertsApplicability",
-		"description": "Shows the alerts by workflow stage for the selected SLA period.",
+		"description": "Review SLA’s for Alert applicablity analysis workflow",
 		"name": "Alert Applicability SLA",
 		"type": "System",
 		"viewType": [
@@ -660,12 +660,25 @@
 			"bar"
 		],
 		"cube": "AlertsApplicability",
+		"baseUrl": "/alerts/all-alerts",
+		"defaultTimeFilter": "> 30 days"
+	},
+	{
+		"id": "AlertsGroupApplicability",
+		"description": "Review group-wise SLAs Impact Assessment applicability analysis workflow",
+		"name": "Alert Applicability SLA by Groups",
+		"type": "System",
+		"viewType": [
+			"table",
+			"bar"
+		],
+		"cube": "AlertsGroupApplicability",
 		"baseUrl": "",
 		"defaultTimeFilter": "> 30 days"
 	},
 	{
 		"id": "ImpactAssessmentApplicability",
-		"description": "Shows the impact assessments whose workflow stage is Open or Closed for the selected SLA period.",
+		"description": "Review SLA’s for Impact assessment applicability analysis workflow",
 		"name": "Impact Assessment SLA",
 		"type": "System",
 		"viewType": [
@@ -673,6 +686,19 @@
 			"bar"
 		],
 		"cube": "ImpactAssessmentApplicability",
+		"baseUrl": "/alerts/impact-assessment",
+		"defaultTimeFilter": "> 30 days"
+	},
+	{
+		"id": "ImpactAssessmentGroupsApplicability",
+		"description": "Review group-wise SLAs Impact Assessment applicability analysis workflow",
+		"name": "Impact Assessment Applicability SLA by Groups",
+		"type": "System",
+		"viewType": [
+			"table",
+			"bar"
+		],
+		"cube": "ImpactAssessmentGroupsApplicability",
 		"baseUrl": "",
 		"defaultTimeFilter": "> 30 days"
 	}

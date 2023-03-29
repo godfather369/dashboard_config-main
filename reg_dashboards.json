@@ -676,12 +676,40 @@
 			},
 			{
 				"layout": {
-					"x": 6,
+					"x": 0,
 					"y": 2,
 					"w": 12,
 					"h": 2
 				},
+				"widgetId": "AlertsGroupApplicability",
+				"viewType": [
+					"table",
+					"bar"
+				],
+				"defaultTimeFilter": "> 30 days"
+			},
+			{
+				"layout": {
+					"x": 6,
+					"y": 4,
+					"w": 12,
+					"h": 2
+				},
 				"widgetId": "ImpactAssessmentApplicability",
+				"viewType": [
+					"table",
+					"bar"
+				],
+				"defaultTimeFilter": "> 30 days"
+			},
+			{
+				"layout": {
+					"x": 6,
+					"y": 6,
+					"w": 12,
+					"h": 2
+				},
+				"widgetId": "ImpactAssessmentGroupsApplicability",
 				"viewType": [
 					"table",
 					"bar"
