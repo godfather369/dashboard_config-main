@@ -2478,11 +2478,6 @@
 			{
 				"dimension": "Users._id",
 				"filter": "user",
-				"cubejsQuery": {
-					"dimensions": [
-						"Users._id"
-					]
-				},
 				"api": "/users"
 			},
 			{
@@ -2623,11 +2618,6 @@
 			{
 				"dimension": "Users._id",
 				"filter": "user",
-				"cubejsQuery": {
-					"dimensions": [
-						"Users._id"
-					]
-				},
 				"api": "/users"
 			},
 			{
