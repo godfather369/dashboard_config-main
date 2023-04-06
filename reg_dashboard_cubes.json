@@ -1778,7 +1778,8 @@
 				"AlertsByGroupsCube.totalCount"
 			],
 			"dimensions": [
-				"AlertsByGroupsCube.name"
+				"AlertsByGroupsCube.name",
+				"AlertsByGroupsCube.grpId"
 			],
 			"segments": [],
 			"timeDimensions": [
@@ -1791,6 +1792,10 @@
 				{
 					"operator": "set",
 					"member": "AlertsByGroupsCube.name"
+				},
+				{
+					"operator": "set",
+					"member": "AlertsByGroupsCube.grpId"
 				}
 			],
 			"limit": 1000,
@@ -1809,7 +1814,8 @@
 					"measures"
 				],
 				"x": [
-					"AlertsByGroupsCube.name"
+					"AlertsByGroupsCube.name",
+					"AlertsByGroupsCube.grpId"
 				]
 			}
 		},
@@ -1846,13 +1852,8 @@
 		],
 		"routerParams": [
 			{
-				"dimension": "AlertsByGroupsCube.name",
+				"dimension": "AlertsByGroupsCube.grpId",
 				"filter": "user",
-				"cubejsQuery": {
-					"dimensions": [
-						"AlertsByGroupsCube.grpId"
-					]
-				},
 				"api": "/groups"
 			},
 			{
@@ -2506,11 +2507,16 @@
 				}
 			],
 			"dimensions": [
-				"AlertsByGroupsCube.name"
+				"AlertsByGroupsCube.name",
+				"AlertsByGroupsCube.grpId"
 			],
 			"filters": [
 				{
 					"member": "AlertsByGroupsCube.name",
+					"operator": "set"
+				},
+				{
+					"member": "AlertsByGroupsCube.grpId",
 					"operator": "set"
 				}
 			],
@@ -2529,7 +2535,8 @@
 					"measures"
 				],
 				"x": [
-					"AlertsByGroupsCube.name"
+					"AlertsByGroupsCube.name",
+					"AlertsByGroupsCube.grpId"
 				]
 			}
 		},
@@ -2548,7 +2555,21 @@
 			}
 		],
 		"applicableFilters": [],
-		"routerParams": []
+		"routerParams": [
+			{
+				"dimension": "AlertsByGroupsCube.grpId",
+				"filter": "user",
+				"api": "/groups"
+			},
+			{
+				"dimension": "AlertsByGroupsCube.open",
+				"filter": "status"
+			},
+			{
+				"dimension": "AlertsByGroupsCube.closed",
+				"filter": "status"
+			}
+		]
 	},
 	{
 		"id": "ImpactAssessmentApplicability",
@@ -2646,11 +2667,16 @@
 				}
 			],
 			"dimensions": [
-				"ImpactAssessmentGroupCube.name"
+				"ImpactAssessmentGroupCube.name",
+				"ImpactAssessmentGroupCube.grpId"
 			],
 			"filters": [
 				{
 					"member": "ImpactAssessmentGroupCube.name",
+					"operator": "set"
+				},
+				{
+					"member": "ImpactAssessmentGroupCube.grpId",
 					"operator": "set"
 				}
 			],
@@ -2669,7 +2695,8 @@
 					"measures"
 				],
 				"x": [
-					"ImpactAssessmentGroupCube.name"
+					"ImpactAssessmentGroupCube.name",
+					"ImpactAssessmentGroupCube.grpId"
 				]
 			}
 		},
@@ -2688,6 +2715,20 @@
 			}
 		],
 		"applicableFilters": [],
-		"routerParams": []
+		"routerParams": [
+			{
+				"dimension": "ImpactAssessmentGroupCube.grpId",
+				"filter": "user",
+				"api": "/groups"
+			},
+			{
+				"dimension": "ImpactAssessmentGroupCube.open",
+				"filter": "status"
+			},
+			{
+				"dimension": "ImpactAssessmentGroupCube.closed",
+				"filter": "status"
+			}
+		]
 	}
 ]

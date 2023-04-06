@@ -673,7 +673,7 @@
 			"bar"
 		],
 		"cube": "AlertsGroupApplicability",
-		"baseUrl": "",
+		"baseUrl": "/alerts/all-alerts",
 		"defaultTimeFilter": "> 30 days"
 	},
 	{
@@ -699,7 +699,7 @@
 			"bar"
 		],
 		"cube": "ImpactAssessmentGroupsApplicability",
-		"baseUrl": "",
+		"baseUrl": "/alerts/impact-assessment",
 		"defaultTimeFilter": "> 30 days"
 	}
 ]
