@@ -276,5 +276,70 @@
 			}
 		],
 		"type": "multi"
+	},
+	{
+		"id": "AUDocStatusGeneric",
+		"name": "Agency Updates Doc Status",
+		"category": "docStatus",
+		"filter": {
+			"member": "AlertsCube.docStatus",
+			"operator": "equals",
+			"values": []
+		},
+		"options": [
+			{
+				"label": "Bulletins/Reports",
+				"value": "Bulletins/Reports"
+			},
+			{
+				"label": "Calendar",
+				"value": "Calendar"
+			},
+			{
+				"label": "Enforcement Actions",
+				"value": "Enforcement Actions"
+			},
+			{
+				"label": "Feed",
+				"value": "Feed"
+			},
+			{
+				"label": "Information and Guidance",
+				"value": "Information and Guidance"
+			},
+			{
+				"label": "News/Press Releases",
+				"value": "News/Press Releases"
+			},
+			{
+				"label": "Notice",
+				"value": "Notice"
+			},
+			{
+				"label": "Proposed Rule",
+				"value": "Proposed Rule"
+			},
+			{
+				"label": "Public Notices",
+				"value": "Public Notices"
+			},
+			{
+				"label": "Publications/Communications",
+				"value": "Publications/Communications"
+			},
+			{
+				"label": "Rule",
+				"value": "Rule"
+			},
+			{
+				"label": "Rulemaking",
+				"value": "Rulemaking"
+			},
+			{
+				"label": "Settlements",
+				"value": "Settlements"
+			}
+		],
+		"type": "multi"
 	}
 ]

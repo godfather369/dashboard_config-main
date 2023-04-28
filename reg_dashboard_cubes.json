@@ -394,15 +394,17 @@
 				}
 			],
 			"dimensions": [
-				"AlertAgencyNamesCube.agencyNames",
-				"AlertsCube.agencyMap"
+				"AlertsCube.agencyMap",
+				"AlertAgencyNamesCube.shortCode",
+				"AlertAgencyNamesCube.agencyNames"
 			]
 		},
 		"meta": {
 			"pivotConfig": {
 				"x": [
-					"AlertAgencyNamesCube.agencyNames",
-					"AlertsCube.agencyMap"
+					"AlertsCube.agencyMap",
+					"AlertAgencyNamesCube.shortCode",
+					"AlertAgencyNamesCube.agencyNames"
 				],
 				"y": [
 					"measures"
@@ -1156,7 +1158,7 @@
 		"routerParams": [
 			{
 				"dimension": "EnforcementActionsAgencyNamesCube.agencyNames",
-				"api": "/agency",
+				"api": "/agencyName",
 				"filter": "agency"
 			}
 		]
@@ -1227,7 +1229,7 @@
 		"routerParams": [
 			{
 				"dimension": "EnforcementActionsAgencyNamesCube.agencyNames",
-				"api": "/agency",
+				"api": "/agencyName",
 				"filter": "agency"
 			},
 			{
@@ -1299,7 +1301,7 @@
 		"routerParams": [
 			{
 				"dimension": "EnforcementActionsAgencyNamesCube.agencyNames",
-				"api": "/agency",
+				"api": "/agencyName",
 				"filter": "agency"
 			},
 			{
@@ -1376,7 +1378,7 @@
 		"routerParams": [
 			{
 				"dimension": "EnforcementActionsAgencyNamesCube.agencyNames",
-				"api": "/agency",
+				"api": "/agencyName",
 				"filter": "agency"
 			},
 			{

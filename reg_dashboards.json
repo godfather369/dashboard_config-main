@@ -156,7 +156,7 @@
 		"id": "BillAlerts",
 		"category": "Alerts",
 		"description": "Overview of all alerts, including alerts by time period, user, agency, regulation, and more.",
-		"name": "Bill Alerts",
+		"name": "Bills",
 		"type": "System",
 		"order": 2,
 		"widgets": [
@@ -194,14 +194,13 @@
 					"w": 6,
 					"h": 2
 				},
-				"widgetId": "BillsJurisdictionStatus",
+				"widgetId": "BillsAgency",
 				"viewType": [
-					"column",
 					"bar",
-					"map",
+					"column",
 					"table"
 				],
-				"defaultTimeFilter": "Last 90 days"
+				"defaultTimeFilter": "Last 30 days"
 			},
 			{
 				"layout": {
@@ -221,6 +220,22 @@
 				"layout": {
 					"x": 0,
 					"y": 4,
+					"w": 12,
+					"h": 2
+				},
+				"widgetId": "BillsJurisdictionStatus",
+				"viewType": [
+					"map",
+					"column",
+					"bar",
+					"table"
+				],
+				"defaultTimeFilter": "Last 90 days"
+			},
+			{
+				"layout": {
+					"x": 0,
+					"y": 6,
 					"w": 12,
 					"h": 2
 				},

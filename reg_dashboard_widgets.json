@@ -256,13 +256,16 @@
 		"name": "Bills by Agency",
 		"type": "System",
 		"viewType": [
+			"bar",
+			"column",
 			"table"
 		],
 		"cube": "AlertsByAgency",
 		"defaultTimeFilter": "Last 30 days",
 		"filters": [
 			"alertCategoryBills"
-		]
+		],
+		"baseUrl": "/alerts/horizon-scanning"
 	},
 	{
 		"id": "RegulatoryChangesAgency",
@@ -631,6 +634,9 @@
 		],
 		"filters": [
 			"alertCategoryNews"
+		],
+		"dropDownFilters": [
+			"AUDocStatusGeneric"
 		],
 		"cube": "AgencyJurisdictionDocumentStatus",
 		"defaultTimeFilter": "Last 90 days"
