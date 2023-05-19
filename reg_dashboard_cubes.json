@@ -8,7 +8,8 @@
 				"AlertsByTopic.totalCount"
 			],
 			"dimensions": [
-				"AlertsByTopic.grpName"
+				"AlertsByTopic.grpName",
+				"AlertsByTopic.grpIds"
 			],
 			"segments": [],
 			"timeDimensions": [
@@ -20,6 +21,10 @@
 			"filters": [
 				{
 					"member": "AlertsByTopic.grpName",
+					"operator": "set"
+				},
+				{
+					"member": "AlertsByTopic.grpIds",
 					"operator": "set"
 				},
 				{
@@ -46,7 +51,8 @@
 					"measures"
 				],
 				"x": [
-					"AlertsByTopic.grpName"
+					"AlertsByTopic.grpName",
+					"AlertsByTopic.grpIds"
 				]
 			},
 			"layout": "vertical",
@@ -69,13 +75,8 @@
 				"filter": "publishedDate"
 			},
 			{
-				"dimension": "AlertsByTopic.grpName",
-				"filter": "mdIds",
-				"cubejsQuery": {
-					"dimensions": [
-						"AlertsByTopic.grpIds"
-					]
-				}
+				"dimension": "AlertsByTopic.grpIds",
+				"filter": "mdIds"
 			}
 		]
 	},
@@ -651,66 +652,6 @@
 		"routerParams": []
 	},
 	{
-		"id": "AlertRulePerJurisdiction",
-		"category": "Alerts",
-		"name": "Alert Rule per Jurisdiction",
-		"query": {
-			"measures": [
-				"AlertsCube.totalCount"
-			],
-			"dimensions": [
-				"AlertsCube.alertType",
-				"JurisdictionsCube.displayName"
-			],
-			"segments": [],
-			"timeDimensions": [
-				{
-					"dimension": "AlertsCube.publishedDate",
-					"granularity": "quarter",
-					"dateRange": "Last 4 quarters"
-				}
-			],
-			"filters": [
-				{
-					"operator": "set",
-					"member": "AlertsCube.alertType"
-				}
-			],
-			"limit": 1000,
-			"order": [
-				[
-					"AlertsCube.totalCount",
-					"desc"
-				]
-			]
-		},
-		"meta": {
-			"pivotConfig": {
-				"joinDateRange": false,
-				"fillMissingDates": true,
-				"y": [
-					"JurisdictionsCube.displayName",
-					"AlertsCube.alertType"
-				],
-				"x": [
-					"AlertsCube.publishedDate.quarter"
-				]
-			},
-			"widgetType": "quarterly"
-		},
-		"langMapping": [
-			{
-				"langKey": "i18n_LBL_ALERTS_ALERT_RULE",
-				"entity": "AlertsCube.alertType"
-			},
-			{
-				"langKey": "i18n_LBL_ALERTS_JURISDICTION_NAME",
-				"entity": "JurisdictionsCube.displayName"
-			}
-		],
-		"applicableFilters": []
-	},
-	{
 		"id": "BillsJurisdictionStatus",
 		"category": "Alerts",
 		"name": "Bills by Jurisdiction and Status",
@@ -1085,8 +1026,10 @@
 				"EnforcementActionsCube.netAmount"
 			],
 			"dimensions": [
-				"EnforcementActionsAgencyNamesCube.agencyNames",
-				"EnforcementActionsCube.currency"
+				"EnforcementActionsCube.agencyMap",
+				"EnforcementActionsCube.currency",
+				"AlertAgencyNamesCube.shortCode",
+				"AlertAgencyNamesCube.agencyNames"
 			],
 			"segments": [],
 			"timeDimensions": [
@@ -1101,7 +1044,7 @@
 					"operator": "set"
 				},
 				{
-					"member": "EnforcementActionsAgencyNamesCube.agencyNames",
+					"member": "EnforcementActionsCube.agencyMap",
 					"operator": "set"
 				}
 			],
@@ -1121,7 +1064,9 @@
 					"EnforcementActionsCube.count"
 				],
 				"y": [
-					"EnforcementActionsAgencyNamesCube.agencyNames"
+					"EnforcementActionsCube.agencyMap",
+					"AlertAgencyNamesCube.shortCode",
+					"AlertAgencyNamesCube.agencyNames"
 				],
 				"fillMissingDates": true,
 				"joinDateRange": false
@@ -1138,7 +1083,7 @@
 				"langKey": "i18n_LBL_ENFORCEMENT_ACTIONS_REPORT_AGGREGATED_PENALTIES"
 			},
 			{
-				"entity": "EnforcementActionsAgencyNamesCube.agencyNames",
+				"entity": "AlertAgencyNamesCube.agencyNames",
 				"langKey": "i18n_LBL_AGENCY"
 			},
 			{
@@ -1157,8 +1102,8 @@
 		"applicableFilters": [],
 		"routerParams": [
 			{
-				"dimension": "EnforcementActionsAgencyNamesCube.agencyNames",
-				"api": "/agencyName",
+				"dimension": "EnforcementActionsCube.agencyMap",
+				"api": "/agency",
 				"filter": "agency"
 			}
 		]
@@ -1172,8 +1117,10 @@
 				"EnforcementActionsCube.netAmount"
 			],
 			"dimensions": [
-				"EnforcementActionsAgencyNamesCube.agencyNames",
-				"EnforcementActionsCube.currency"
+				"EnforcementActionsCube.agencyMap",
+				"EnforcementActionsCube.currency",
+				"AlertAgencyNamesCube.shortCode",
+				"AlertAgencyNamesCube.agencyNames"
 			],
 			"segments": [],
 			"timeDimensions": [
@@ -1201,7 +1148,9 @@
 			"pivotConfig": {
 				"fillMissingDates": true,
 				"y": [
-					"EnforcementActionsAgencyNamesCube.agencyNames"
+					"EnforcementActionsCube.agencyMap",
+					"AlertAgencyNamesCube.shortCode",
+					"AlertAgencyNamesCube.agencyNames"
 				],
 				"x": [
 					"EnforcementActionsCube.effectiveDate.quarter",
@@ -1213,7 +1162,7 @@
 		},
 		"langMapping": [
 			{
-				"entity": "EnforcementActionsAgencyNamesCube.agencyNames",
+				"entity": "AlertAgencyNamesCube.agencyNames",
 				"langKey": "i18n_LBL_AGENCY"
 			},
 			{
@@ -1228,8 +1177,8 @@
 		"applicableFilters": [],
 		"routerParams": [
 			{
-				"dimension": "EnforcementActionsAgencyNamesCube.agencyNames",
-				"api": "/agencyName",
+				"dimension": "EnforcementActionsCube.agencyMap",
+				"api": "/agency",
 				"filter": "agency"
 			},
 			{
@@ -1247,8 +1196,10 @@
 				"EnforcementActionsCube.count"
 			],
 			"dimensions": [
+				"EnforcementActionsCube.agencyMap",
 				"HarmonizedActionTypeCube.harmonizedActionType",
-				"EnforcementActionsAgencyNamesCube.agencyNames"
+				"AlertAgencyNamesCube.shortCode",
+				"AlertAgencyNamesCube.agencyNames"
 			],
 			"segments": [],
 			"timeDimensions": [
@@ -1263,7 +1214,7 @@
 					"operator": "set"
 				},
 				{
-					"member": "EnforcementActionsAgencyNamesCube.agencyNames",
+					"member": "EnforcementActionsCube.agencyMap",
 					"operator": "set"
 				},
 				{
@@ -1285,7 +1236,9 @@
 					"HarmonizedActionTypeCube.harmonizedActionType"
 				],
 				"y": [
-					"EnforcementActionsAgencyNamesCube.agencyNames"
+					"EnforcementActionsCube.agencyMap",
+					"AlertAgencyNamesCube.shortCode",
+					"AlertAgencyNamesCube.agencyNames"
 				],
 				"fillMissingDates": true
 			},
@@ -1293,15 +1246,15 @@
 		},
 		"langMapping": [
 			{
-				"entity": "EnforcementActionsAgencyNamesCube.agencyNames",
+				"entity": "EnforcementActionsCube.agencyMap",
 				"langKey": "i18n_LBL_AGENCY"
 			}
 		],
 		"applicableFilters": [],
 		"routerParams": [
 			{
-				"dimension": "EnforcementActionsAgencyNamesCube.agencyNames",
-				"api": "/agencyName",
+				"dimension": "EnforcementActionsCube.agencyMap",
+				"api": "/agency",
 				"filter": "agency"
 			},
 			{
@@ -1319,7 +1272,9 @@
 				"EnforcementActionsCube.count"
 			],
 			"dimensions": [
-				"EnforcementActionsAgencyNamesCube.agencyNames"
+				"EnforcementActionsCube.agencyMap",
+				"AlertAgencyNamesCube.shortCode",
+				"AlertAgencyNamesCube.agencyNames"
 			],
 			"segments": [],
 			"timeDimensions": [
@@ -1331,7 +1286,7 @@
 			],
 			"filters": [
 				{
-					"member": "EnforcementActionsAgencyNamesCube.agencyNames",
+					"member": "EnforcementActionsCube.agencyMap",
 					"operator": "set"
 				}
 			],
@@ -1349,7 +1304,9 @@
 					"EnforcementActionsCube.effectiveDate.quarter"
 				],
 				"y": [
-					"EnforcementActionsAgencyNamesCube.agencyNames"
+					"EnforcementActionsCube.agencyMap",
+					"AlertAgencyNamesCube.shortCode",
+					"AlertAgencyNamesCube.agencyNames"
 				],
 				"fillMissingDates": true,
 				"joinDateRange": false
@@ -1358,7 +1315,7 @@
 		},
 		"langMapping": [
 			{
-				"entity": "EnforcementActionsAgencyNamesCube.agencyNames",
+				"entity": "AlertAgencyNamesCube.agencyNames",
 				"langKey": "i18n_LBL_AGENCY"
 			},
 			{
@@ -1377,8 +1334,8 @@
 		"applicableFilters": [],
 		"routerParams": [
 			{
-				"dimension": "EnforcementActionsAgencyNamesCube.agencyNames",
-				"api": "/agencyName",
+				"dimension": "EnforcementActionsCube.agencyMap",
+				"api": "/agency",
 				"filter": "agency"
 			},
 			{
@@ -1633,12 +1590,17 @@
 				"MapOwnersCube.total"
 			],
 			"dimensions": [
-				"Users.fullName"
+				"Users.fullName",
+				"Users._id"
 			],
 			"timeDimensions": [],
 			"filters": [
 				{
 					"member": "Users.fullName",
+					"operator": "set"
+				},
+				{
+					"member": "Users._id",
 					"operator": "set"
 				}
 			],
@@ -1656,7 +1618,8 @@
 					"measures"
 				],
 				"x": [
-					"Users.fullName"
+					"Users.fullName",
+					"Users._id"
 				]
 			},
 			"layout": "vertical"
@@ -1686,13 +1649,8 @@
 		"applicableFilters": [],
 		"routerParams": [
 			{
-				"dimension": "Users.fullName",
-				"filter": "owner",
-				"cubejsQuery": {
-					"dimensions": [
-						"Users._id"
-					]
-				},
+				"dimension": "Users._id",
+				"filter": "user",
 				"api": "/users"
 			},
 			{
@@ -1889,7 +1847,8 @@
 				"ImpactAssessmentCube.count"
 			],
 			"dimensions": [
-				"Users.fullName"
+				"Users.fullName",
+				"Users._id"
 			],
 			"segments": [],
 			"timeDimensions": [
@@ -1902,6 +1861,10 @@
 				{
 					"operator": "set",
 					"member": "Users.fullName"
+				},
+				{
+					"member": "Users._id",
+					"operator": "set"
 				}
 			],
 			"limit": 1000,
@@ -1924,7 +1887,8 @@
 					"measures"
 				],
 				"x": [
-					"Users.fullName"
+					"Users.fullName",
+					"Users._id"
 				]
 			}
 		},
@@ -1941,13 +1905,8 @@
 		"applicableFilters": [],
 		"routerParams": [
 			{
-				"dimension": "Users.fullName",
+				"dimension": "Users._id",
 				"filter": "user",
-				"cubejsQuery": {
-					"dimensions": [
-						"Users._id"
-					]
-				},
 				"api": "/users"
 			}
 		]
