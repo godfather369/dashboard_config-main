@@ -263,7 +263,7 @@
 		"cube": "AlertsByAgency",
 		"defaultTimeFilter": "Last 30 days",
 		"filters": [
-			"alertCategoryBills"
+			"alertCategoryAgencyBills"
 		],
 		"baseUrl": "/alerts/horizon-scanning"
 	},
@@ -280,7 +280,7 @@
 		"cube": "AlertsByAgency",
 		"defaultTimeFilter": "Last 30 days",
 		"filters": [
-			"alertCategoryLaws"
+			"alertCategoryAgencyLaws"
 		],
 		"baseUrl": "/alerts/regulatory-changes"
 	},
@@ -297,7 +297,7 @@
 		"cube": "AlertsByAgency",
 		"defaultTimeFilter": "Last 30 days",
 		"filters": [
-			"alertCategoryNews"
+			"alertCategoryAgencyNews"
 		],
 		"baseUrl": "/alerts/agency-updates"
 	},

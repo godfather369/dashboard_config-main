@@ -1,7 +1,7 @@
 [
 	{
 		"id": "alertCategoryAll",
-		"name": "i18n_LBL_ALL_ALERTS",
+		"name": "Alert Category: All",
 		"category": "alertCategory",
 		"filter": {
 			"member": "AlertsCube.alertCategory",
@@ -11,7 +11,7 @@
 	},
 	{
 		"id": "alertCategoryBills",
-		"name": "i18n_LBL_ALERTS_BILLS",
+		"name": "Alert Category: Bills",
 		"category": "alertCategory",
 		"filter": {
 			"member": "AlertsCube.alertCategory",
@@ -23,7 +23,7 @@
 	},
 	{
 		"id": "alertCategoryLaws",
-		"name": "i18n_LBL_ALERTS_LAWS_AND_REGULATIONS",
+		"name": "Alert Category: Laws",
 		"category": "alertCategory",
 		"filter": {
 			"member": "AlertsCube.alertCategory",
@@ -35,10 +35,46 @@
 	},
 	{
 		"id": "alertCategoryNews",
-		"name": "i18n_LBL_ALERTS_AGENCY_UPDATES",
+		"name": "Alert Category: News",
 		"category": "alertCategory",
 		"filter": {
 			"member": "AlertsCube.alertCategory",
+			"operator": "equals",
+			"values": [
+				"News & Publications"
+			]
+		}
+	},
+	{
+		"id": "alertCategoryAgencyBills",
+		"name": "Alert Category Agency: Bills",
+		"category": "alertCategory",
+		"filter": {
+			"member": "AlertsByAgencyCube.alertCategory",
+			"operator": "equals",
+			"values": [
+				"Bills"
+			]
+		}
+	},
+	{
+		"id": "alertCategoryAgencyLaws",
+		"name": "Alert Category Agency: Laws",
+		"category": "alertCategory",
+		"filter": {
+			"member": "AlertsByAgencyCube.alertCategory",
+			"operator": "equals",
+			"values": [
+				"Laws & Regulations"
+			]
+		}
+	},
+	{
+		"id": "alertCategoryAgencyNews",
+		"name": "Alert Category Agency: News",
+		"category": "alertCategory",
+		"filter": {
+			"member": "AlertsByAgencyCube.alertCategory",
 			"operator": "equals",
 			"values": [
 				"News & Publications"
