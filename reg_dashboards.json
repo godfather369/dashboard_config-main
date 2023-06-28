@@ -732,5 +732,112 @@
 				"defaultTimeFilter": "> 30 days"
 			}
 		]
+	},
+	{
+		"id": "MyWork",
+		"category": "MyWork",
+		"description": "Overview of all your alerts, their statuses, impact assessments, risks, controls, tasks and SLA status.",
+		"name": "My Work",
+		"type": "System",
+		"order": 9,
+		"widgets": [
+			{
+				"layout": {
+					"x": 0,
+					"y": 0,
+					"w": 6,
+					"h": 2
+				},
+				"widgetId": "MyAlerts",
+				"viewType": [
+					"line",
+					"bar",
+					"column"
+				]
+			},
+			{
+				"layout": {
+					"x": 6,
+					"y": 0,
+					"w": 6,
+					"h": 2
+				},
+				"widgetId": "MyAlertsSLA",
+				"viewType": [
+					"pie"
+				],
+				"defaultTimeFilter": "> 30 days"
+			},
+			{
+				"layout": {
+					"x": 0,
+					"y": 2,
+					"w": 6,
+					"h": 2
+				},
+				"widgetId": "MyImpacts",
+				"viewType": [
+					"column",
+					"bar",
+					"table"
+				],
+				"defaultTimeFilter": "Last 90 days"
+			},
+			{
+				"layout": {
+					"x": 6,
+					"y": 2,
+					"w": 6,
+					"h": 2
+				},
+				"widgetId": "MyImpactsSLA",
+				"viewType": [
+					"pie"
+				],
+				"defaultTimeFilter": "> 30 days"
+			},
+			{
+				"layout": {
+					"x": 0,
+					"y": 4,
+					"w": 6,
+					"h": 2
+				},
+				"widgetId": "MyRisks",
+				"viewType": [
+					"pie",
+					"bar",
+					"column"
+				]
+			},
+			{
+				"layout": {
+					"x": 6,
+					"y": 4,
+					"w": 6,
+					"h": 2
+				},
+				"widgetId": "MyControls",
+				"viewType": [
+					"pie",
+					"bar",
+					"column"
+				]
+			},
+			{
+				"layout": {
+					"x": 0,
+					"y": 6,
+					"w": 6,
+					"h": 2
+				},
+				"widgetId": "MyTasks",
+				"viewType": [
+					"column",
+					"bar",
+					"table"
+				]
+			}
+		]
 	}
 ]

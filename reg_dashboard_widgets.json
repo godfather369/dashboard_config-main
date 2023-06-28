@@ -707,5 +707,88 @@
 		"cube": "ImpactAssessmentGroupsApplicability",
 		"baseUrl": "/alerts/impact-assessment",
 		"defaultTimeFilter": "> 30 days"
+	},
+	{
+		"id": "MyRisks",
+		"description": "Displays your risks against their status.",
+		"name": "My Risks",
+		"type": "System",
+		"cube": "MyRisks",
+		"viewType": [
+			"pie",
+			"bar",
+			"column"
+		]
+	},
+	{
+		"id": "MyControls",
+		"description": "Displays your controls against their status.",
+		"name": "My Controls",
+		"type": "System",
+		"cube": "MyControls",
+		"viewType": [
+			"pie",
+			"bar",
+			"column"
+		]
+	},
+	{
+		"id": "MyImpacts",
+		"description": "Impact Assessments assigned to me or my groups along with their impact level and status.",
+		"name": "My Impact Assessments",
+		"type": "System",
+		"cube": "MyImpacts",
+		"defaultTimeFilter": "Last 90 days",
+		"viewType": [
+			"column",
+			"bar",
+			"table"
+		]
+	},
+	{
+		"id": "MyAlerts",
+		"description": "Alerts assigned to me or my group by time period",
+		"name": "My Alerts",
+		"type": "System",
+		"cube": "MyAlerts",
+		"viewType": [
+			"line",
+			"bar",
+			"column"
+		]
+	},
+	{
+		"id": "MyAlertsSLA",
+		"description": "Review SLA’s for me and my group’s alert applicability analysis workflow.",
+		"name": "My Alert Applicability SLA",
+		"type": "System",
+		"cube": "MyAlertsSLA",
+		"viewType": [
+			"pie"
+		],
+		"defaultTimeFilter": "> 30 days"
+	},
+	{
+		"id": "MyImpactsSLA",
+		"description": "Review SLA’s for me and my group’s impact assessment  applicability analysis workflow.",
+		"name": "My Impact Assessment SLA",
+		"type": "System",
+		"cube": "MyImpactsSLA",
+		"viewType": [
+			"pie"
+		],
+		"defaultTimeFilter": "> 30 days"
+	},
+	{
+		"id": "MyTasks",
+		"description": "Displays your tasks, their status and overdue tasks.",
+		"name": "My Tasks",
+		"type": "System",
+		"cube": "MyTasks",
+		"viewType": [
+			"column",
+			"bar",
+			"table"
+		]
 	}
 ]

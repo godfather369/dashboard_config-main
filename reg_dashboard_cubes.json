@@ -2725,5 +2725,366 @@
 				"filter": "status"
 			}
 		]
+	},
+		{
+		"id": "MyRisks",
+		"category": "MyWork",
+		"name": "My Risks",
+		"query": {
+			"measures": [
+				"MyRisks.count"
+			],
+			"dimensions": [
+				"RisksByStatusCube.riskStatus"
+			],
+			"timeDimensions": [],
+			"filters": [],
+			"limit": 10,
+			"order": [
+				[
+					"MapStatusCube.count",
+					"desc"
+				]
+			]
+		},
+		"meta": {
+			"pivotConfig": {
+				"joinDateRange": false,
+				"fillMissingDates": true,
+				"y": [
+					"measures"
+				],
+				"x": [
+					"RisksByStatusCube.riskStatus"
+				]
+			},
+			"layout": "vertical",
+			"allowDecimals": false
+		},
+		"langMapping": [
+			{
+				"entity": "MyRisks.count",
+				"langKey": "i18n_LBL_REG_MAP_STATUS_COUNT"
+			},
+			{
+				"entity": "RisksByStatusCube.riskStatus",
+				"langKey": "i18n_LBL_RISKS_STATUS"
+			}
+		],
+		"applicableFilters": [],
+		"routerParams": [
+			{
+				"dimension": "RisksByStatusCube.riskStatus",
+				"filter": "status"
+			}
+		]
+	},
+	{
+		"id": "MyControls",
+		"category": "MyWork",
+		"name": "My Controls",
+		"query": {
+			"measures": [
+				"MyControls.count"
+			],
+			"dimensions": [
+				"ControlsByStatusCube.controlStatus"
+			],
+			"timeDimensions": [],
+			"filters": [],
+			"limit": 10,
+			"order": [
+				[
+					"MyControls.count",
+					"desc"
+				]
+			]
+		},
+		"meta": {
+			"pivotConfig": {
+				"y": [
+					"measures"
+				],
+				"x": [
+					"ControlsByStatusCube.controlStatus"
+				]
+			},
+			"layout": "vertical",
+			"allowDecimals": false
+		},
+		"langMapping": [
+			{
+				"entity": "MyControls.count",
+				"langKey": "i18n_LBL_REG_MAP_STATUS_COUNT"
+			},
+			{
+				"entity": "ControlsByStatusCube.controlStatus",
+				"langKey": "i18n_LBL_CONTROLS_STATUS"
+			}
+		],
+		"applicableFilters": [],
+		"routerParams": [
+			{
+				"dimension": "ControlsByStatusCube.controlStatus",
+				"filter": "status"
+			}
+		]
+	},
+	{
+		"id": "MyImpacts",
+		"category": "MyWork",
+		"name": "My Impacts",
+		"query": {
+			"measures": [
+				"MyImpacts.inProcess",
+				"MyImpacts.New",
+				"MyImpacts.closed"
+			],
+			"timeDimensions": [
+				{
+					"dimension": "MyImpacts.startDate",
+					"dateRange": "Last 90 days"
+				}
+			],
+			"segments": [],
+			"order": [
+				[
+					"MyImpacts.count",
+					"asc"
+				]
+			],
+			"filters": [],
+			"dimensions": [
+				"MyImpacts.impactLevel"
+			]
+		},
+		"meta": {
+			"pivotConfig": {
+				"x": [
+					"MyImpacts.impactLevel"
+				],
+				"y": [
+					"measures"
+				],
+				"fillMissingDates": true,
+				"joinDateRange": false,
+				"limit": 50000
+			}
+		},
+		"langMapping": [
+			{
+				"langKey": "i18n_LBL_NEW",
+				"entity": "MyImpacts.New"
+			},
+			{
+				"langKey": "i18n_LBL_IN_PROCESS",
+				"entity": "MyImpacts.inProcess"
+			},
+			{
+				"langKey": "i18n_LBL_CLOSED",
+				"entity": "MyImpacts.closed"
+			},
+			{
+				"langKey": "i18n_LBL_IMPACT_LEVEL",
+				"entity": "MyImpacts.impactLevel"
+			}
+		],
+		"applicableFilters": [],
+		"routerParams": []
+	},
+	{
+		"id": "MyAlerts",
+		"category": "MyWork",
+		"name": "My Alerts",
+		"query": {
+			"measures": [
+				"MyAlerts.bills",
+				"MyAlerts.agencyUpdates",
+				"MyAlerts.regulatoryChanges"
+			],
+			"dimensions": [],
+			"segments": [],
+			"timeDimensions": [
+				{
+					"dimension": "MyAlerts.publishedDate",
+					"dateRange": "Last 365 days",
+					"granularity": "month"
+				}
+			],
+			"filters": [],
+			"limit": 1000,
+			"order": [
+				[
+					"MyAlerts.publishedDate",
+					"desc"
+				]
+			]
+		},
+		"meta": {
+			"pivotConfig": {
+				"joinDateRange": false,
+				"fillMissingDates": true,
+				"y": [
+					"measures"
+				],
+				"x": [
+					"MyAlerts.publishedDate.month"
+				]
+			}
+		},
+		"langMapping": [
+			{
+				"entity": "MyAlerts.bills",
+				"langKey": "i18n_LBL_ALERTS_BILLS"
+			},
+			{
+				"entity": "MyAlerts.agencyUpdates",
+				"langKey": "i18n_LBL_ALERTS_AGENCY_UPDATES"
+			},
+			{
+				"entity": "MyAlerts.regulatoryChanges",
+				"langKey": "i18n_LBL_ALERTS_REGULATORY_CHANGES"
+			},
+			{
+				"entity": "MyAlerts.publishedDate",
+				"langKey": "i18n_LBL_ALERTS_PUBLISHED_DATE"
+			}
+		],
+		"applicableFilters": [],
+		"routerParams": []
+	},
+	{
+		"id": "MyAlertsSLA",
+		"category": "MyWorkSLA",
+		"name": "My Alerts SLA",
+		"query": {
+			"measures": [
+				"MyAlertsSLA.count"
+			],
+			"dimensions": ["MyAlertsSLA.status"],
+			"segments": [],
+			"timeDimensions": [
+				{
+					"dimension": "MyAlertsSLA.created",
+					"dateRange": "Last 30 days"
+				}
+			],
+			"filters": [],
+			"limit": 1000,
+			"order": [
+				[
+					"MyAlertsSLA.created",
+					"desc"
+				]
+			]
+		},
+		"meta": {
+			"pivotConfig": {
+				"joinDateRange": false,
+				"fillMissingDates": true,
+				"y": [
+					"measures"
+				],
+				"x": []
+			}
+		},
+		"langMapping": [],
+		"applicableFilters": [],
+		"routerParams": []
+	},
+	{
+		"id": "MyImpactsSLA",
+		"category": "MyWorkSLA",
+		"name": "My Impacts SLA",
+		"query": {
+			"measures": [
+				"MyImpactsSLA.count"
+			],
+			"dimensions": ["MyImpactsSLA.status"],
+			"segments": [],
+			"timeDimensions": [
+				{
+					"dimension": "MyImpactsSLA.created",
+					"dateRange": "Last 30 days"
+				}
+			],
+			"filters": [],
+			"limit": 1000,
+			"order": [
+				[
+					"MyImpactsSLA.created",
+					"desc"
+				]
+			]
+		},
+		"meta": {
+			"pivotConfig": {
+				"joinDateRange": false,
+				"fillMissingDates": true,
+				"y": [
+					"measures"
+				],
+				"x": []
+			}
+		},
+		"langMapping": [],
+		"applicableFilters": [],
+		"routerParams": []
+	},
+	{
+		"id": "MyTasks",
+		"category": "MyWork",
+		"name": "My Tasks",
+		"query": {
+			"measures": [
+				"MyTasks.overYear",
+				"MyTasks.overMonth",
+				"MyTasks.overWeek"
+			],
+			"dimensions": [
+				"MyTasks.taskStatus"
+			],
+			"timeDimensions": [],
+			"filters": [],
+			"limit": 10,
+			"order": [
+				[
+					"MyTasks.count",
+					"desc"
+				]
+			]
+		},
+		"meta": {
+			"pivotConfig": {
+				"y": [
+					"measures"
+				],
+				"x": [
+					"MyTasks.taskStatus"
+				]
+			},
+			"layout": "vertical",
+			"allowDecimals": false
+		},
+		"langMapping": [
+			{
+				"entity": "MyTasks.overYear",
+				"langKey": "i18n_LBL_1_OVER_YEAR"
+			},
+			{
+				"entity": "MyTasks.overMonth",
+				"langKey": "i18n_LBL_2_OVER_MONTH"
+			},
+			{
+				"entity": "MyTasks.overWeek",
+				"langKey": "i18n_LBL_3_OVER_WEEK"
+			},
+			{
+				"entity": "MyTasks.taskStatus",
+				"langKey": "i18n_LBL_TASKS_STATUS"
+			}
+		],
+		"applicableFilters": [],
+		"routerParams": []
 	}
 ]
