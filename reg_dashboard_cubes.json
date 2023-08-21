@@ -269,6 +269,13 @@
 				{
 					"operator": "set",
 					"member": "Corpus.id"
+				},
+				{
+					"member": "AlertsCube.totalCount",
+					"operator": "notEquals",
+					"values": [
+						"0"
+					]
 				}
 			],
 			"limit": 1000,
@@ -451,8 +458,7 @@
 		"routerParams": [
 			{
 				"dimension": "AlertsByAgencyCube.agencyMap",
-				"filter": "agency",
-				"api": "/agency"
+				"filter": "agency"
 			},
 			{
 				"dimension": "AlertsByAgencyCube.unread",
@@ -567,8 +573,7 @@
 		"routerParams": [
 			{
 				"dimension": "Users._id",
-				"filter": "user",
-				"api": "/users"
+				"filter": "user"
 			},
 			{
 				"dimension": "AlertsByOwnersCube.unread",
@@ -749,8 +754,7 @@
 		"routerParams": [
 			{
 				"dimension": "Jurisdiction.jurisdictionId",
-				"filter": "jurisdictions",
-				"api": "/regulation/jurisdictionById"
+				"filter": "jurisdictions"
 			},
 			{
 				"dimension": "AlertsCube.unread",
@@ -801,6 +805,8 @@
 				"AlertsCube.becameLawStatus",
 				"AlertsCube.statuteStatus",
 				"AlertsCube.regulationStatus",
+				"AlertsCube.ruleStatus",
+				"AlertsCube.proposedRuleStatus",
 				"AlertsCube.agencyUpdateStatus"
 			],
 			"filters": [
@@ -865,6 +871,14 @@
 				"entity": "AlertsCube.regulationStatus"
 			},
 			{
+				"langKey": "i18n_LBL_ALERTS_RULE_COUNT",
+				"entity": "AlertsCube.ruleStatus"
+			},
+			{
+				"langKey": "i18n_LBL_ALERTS_PROPOSED_RULE_COUNT",
+				"entity": "AlertsCube.proposedRuleStatus"
+			},
+			{
 				"langKey": "i18n_LBL_AGENCY_UPDATES_STATUS",
 				"entity": "AlertsCube.agencyUpdateStatus"
 			},
@@ -877,8 +891,7 @@
 		"routerParams": [
 			{
 				"dimension": "Jurisdiction.jurisdictionId",
-				"filter": "jurisdictions",
-				"api": "/regulation/jurisdictionById"
+				"filter": "jurisdictions"
 			},
 			{
 				"dimension": "AlertsCube.introducedDocStatus",
@@ -902,6 +915,14 @@
 			},
 			{
 				"dimension": "AlertsCube.regulationStatus",
+				"filter": "docStatus"
+			},
+			{
+				"dimension": "AlertsCube.ruleStatus",
+				"filter": "docStatus"
+			},
+			{
+				"dimension": "AlertsCube.proposedRuleStatus",
 				"filter": "docStatus"
 			},
 			{
@@ -1021,8 +1042,7 @@
 		"routerParams": [
 			{
 				"dimension": "Jurisdiction.jurisdictionId",
-				"filter": "jurisdictions",
-				"api": "/regulation/jurisdictionById"
+				"filter": "jurisdictions"
 			},
 			{
 				"dimension": "AlertsCube.introducedDocStatus",
@@ -1137,7 +1157,6 @@
 		"routerParams": [
 			{
 				"dimension": "EnforcementActionsCube.agencyMap",
-				"api": "/agency",
 				"filter": "agency"
 			}
 		]
@@ -1212,7 +1231,6 @@
 		"routerParams": [
 			{
 				"dimension": "EnforcementActionsCube.agencyMap",
-				"api": "/agency",
 				"filter": "agency"
 			},
 			{
@@ -1288,7 +1306,6 @@
 		"routerParams": [
 			{
 				"dimension": "EnforcementActionsCube.agencyMap",
-				"api": "/agency",
 				"filter": "agency"
 			},
 			{
@@ -1369,7 +1386,6 @@
 		"routerParams": [
 			{
 				"dimension": "EnforcementActionsCube.agencyMap",
-				"api": "/agency",
 				"filter": "agency"
 			},
 			{
@@ -1388,7 +1404,8 @@
 			],
 			"dimensions": [
 				"RegulationsCube.authoritativeDocuments",
-				"RegulationsCube.citations"
+				"RegulationsCube.citations",
+				"RegulationsCube._id"
 			],
 			"segments": [],
 			"timeDimensions": [
@@ -1414,7 +1431,8 @@
 				],
 				"y": [
 					"RegulationsCube.citations",
-					"RegulationsCube.authoritativeDocuments"
+					"RegulationsCube.authoritativeDocuments",
+					"RegulationsCube._id"
 				],
 				"fillMissingDates": true
 			},
@@ -1433,8 +1451,7 @@
 		"applicableFilters": [],
 		"routerParams": [
 			{
-				"dimension": "RegulationsCube.citations",
-				"api": "/eaRegulation",
+				"dimension": "RegulationsCube._id",
 				"filter": "authoritativeDocuments"
 			},
 			{
@@ -1449,20 +1466,17 @@
 		"name": "Risks by Status",
 		"query": {
 			"measures": [
-				"MapStatusCube.count"
+				"RisksCube.count"
 			],
 			"dimensions": [
-				"RisksByStatusCube.riskStatus"
-			],
-			"segments": [
-				"MapStatusCube.riskType"
+				"RisksCube.status"
 			],
 			"timeDimensions": [],
 			"filters": [],
 			"limit": 10,
 			"order": [
 				[
-					"MapStatusCube.count",
+					"RisksCube.count",
 					"desc"
 				]
 			]
@@ -1475,7 +1489,7 @@
 					"measures"
 				],
 				"x": [
-					"RisksByStatusCube.riskStatus"
+					"RisksCube.status"
 				]
 			},
 			"layout": "vertical",
@@ -1483,22 +1497,18 @@
 		},
 		"langMapping": [
 			{
-				"entity": "MapStatusCube.count",
+				"entity": "RisksCube.count",
 				"langKey": "i18n_LBL_REG_MAP_STATUS_COUNT"
 			},
 			{
-				"entity": "RisksByStatusCube.riskStatus",
+				"entity": "RisksCube.status",
 				"langKey": "i18n_LBL_RISKS_STATUS"
-			},
-			{
-				"entity": "MapStatusCube.riskType",
-				"langKey": "i18n_LBL_RISK_TYPE"
 			}
 		],
 		"applicableFilters": [],
 		"routerParams": [
 			{
-				"dimension": "RisksByStatusCube.riskStatus",
+				"dimension": "RisksCube.status",
 				"filter": "status"
 			}
 		]
@@ -1509,20 +1519,17 @@
 		"name": "Controls by Status",
 		"query": {
 			"measures": [
-				"MapStatusCube.count"
+				"ControlsCube.count"
 			],
 			"dimensions": [
-				"ControlsByStatusCube.controlStatus"
-			],
-			"segments": [
-				"MapStatusCube.controlType"
+				"ControlsCube.status"
 			],
 			"timeDimensions": [],
 			"filters": [],
 			"limit": 10,
 			"order": [
 				[
-					"MapStatusCube.count",
+					"ControlsCube.count",
 					"desc"
 				]
 			]
@@ -1533,7 +1540,7 @@
 					"measures"
 				],
 				"x": [
-					"ControlsByStatusCube.controlStatus"
+					"ControlsCube.status"
 				]
 			},
 			"layout": "vertical",
@@ -1541,22 +1548,18 @@
 		},
 		"langMapping": [
 			{
-				"entity": "MapStatusCube.count",
+				"entity": "ControlsCube.count",
 				"langKey": "i18n_LBL_REG_MAP_STATUS_COUNT"
 			},
 			{
-				"entity": "ControlsByStatusCube.controlStatus",
+				"entity": "ControlsCube.status",
 				"langKey": "i18n_LBL_CONTROLS_STATUS"
-			},
-			{
-				"entity": "MapStatusCube.controlType",
-				"langKey": "i18n_LBL_CONTROL_TYPE"
 			}
 		],
 		"applicableFilters": [],
 		"routerParams": [
 			{
-				"dimension": "ControlsByStatusCube.controlStatus",
+				"dimension": "ControlsCube.status",
 				"filter": "status"
 			}
 		]
@@ -1567,17 +1570,17 @@
 		"name": "Tasks by Status",
 		"query": {
 			"measures": [
-				"MapStatusCubeTask.count"
+				"TasksCube.count"
 			],
 			"dimensions": [
-				"MapStatusCubeTask.status"
+				"TasksCube.status"
 			],
 			"timeDimensions": [],
 			"filters": [],
 			"limit": 10,
 			"order": [
 				[
-					"MapStatusCubeTask.count",
+					"TasksCube.count",
 					"desc"
 				]
 			]
@@ -1588,7 +1591,7 @@
 					"measures"
 				],
 				"x": [
-					"MapStatusCubeTask.status"
+					"TasksCube.status"
 				]
 			},
 			"layout": "vertical",
@@ -1596,18 +1599,18 @@
 		},
 		"langMapping": [
 			{
-				"entity": "MapStatusCubeTask.count",
+				"entity": "TasksCube.count",
 				"langKey": "i18n_LBL_REG_MAP_STATUS_COUNT"
 			},
 			{
-				"entity": "MapStatusCubeTask.status",
+				"entity": "TasksCube.status",
 				"langKey": "i18n_LBL_TASKS_STATUS"
 			}
 		],
 		"applicableFilters": [],
 		"routerParams": [
 			{
-				"dimension": "MapStatusCubeTask.status",
+				"dimension": "TasksCube.status",
 				"filter": "status"
 			}
 		]
@@ -1684,8 +1687,7 @@
 		"routerParams": [
 			{
 				"dimension": "Users._id",
-				"filter": "user",
-				"api": "/users"
+				"filter": "user"
 			},
 			{
 				"dimension": "MapOwnersCube.riskCount",
@@ -1769,6 +1771,7 @@
 				"AlertsByGroupsCube.inProcess",
 				"AlertsByGroupsCube.applicable",
 				"AlertsByGroupsCube.following",
+				"AlertsByGroupsCube.excluded",
 				"AlertsByGroupsCube.totalCount"
 			],
 			"dimensions": [
@@ -1835,6 +1838,10 @@
 				"entity": "AlertsByGroupsCube.following"
 			},
 			{
+				"langKey": "i18n_LBL_ALERTS_EXCLUDED",
+				"entity": "AlertsByGroupsCube.excluded"
+			},
+			{
 				"langKey": "i18n_LBL_GROUP_NAME",
 				"entity": "Groups.name"
 			}
@@ -1847,8 +1854,7 @@
 		"routerParams": [
 			{
 				"dimension": "Groups._id",
-				"filter": "user",
-				"api": "/groups"
+				"filter": "user"
 			},
 			{
 				"dimension": "AlertsByGroupsCube.publishedDate",
@@ -1865,6 +1871,11 @@
 			{
 				"dimension": "AlertsByGroupsCube.following",
 				"filter": "status"
+			},
+			{
+				"dimension": "AlertsByGroupsCube.excluded",
+				"filter": "excludedAlerts",
+				"value": true
 			},
 			{
 				"dimension": "AlertsByGroupsCube.applicable",
@@ -1940,8 +1951,7 @@
 		"routerParams": [
 			{
 				"dimension": "Users._id",
-				"filter": "user",
-				"api": "/users"
+				"filter": "user"
 			}
 		]
 	},
@@ -2318,12 +2328,20 @@
 				"AlertsCube.ruleCount",
 				"AlertsCube.ruleMakingCount",
 				"AlertsCube.settlementsCount",
+				"AlertsCube.presidentialDocument",
 				"AlertsCube.totalAUDocStatusCount"
 			],
 			"filters": [
 				{
 					"member": "Jurisdiction.jurisdictionId",
 					"operator": "set"
+				},
+				{
+					"member": "AlertsCube.status",
+					"operator": "notEquals",
+					"values": [
+						"Excluded"
+					]
 				}
 			]
 		},
@@ -2399,6 +2417,10 @@
 				"entity": "AlertsCube.settlementsCount"
 			},
 			{
+				"langKey": "i18n_LBL_ALERTS_PRESIDENTIAL_DOCUMENT",
+				"entity": "AlertsCube.presidentialDocument"
+			},
+			{
 				"langKey": "i18n_LBL_CONST_TOTAL",
 				"entity": "AlertsCube.totalAUDocStatusCount"
 			}
@@ -2432,6 +2454,10 @@
 				},
 				{
 					"member": "Users._id",
+					"operator": "set"
+				},
+				{
+					"member": "AlertsByOwnersCube.docStatus",
 					"operator": "set"
 				}
 			],
@@ -2473,8 +2499,7 @@
 		"routerParams": [
 			{
 				"dimension": "Users._id",
-				"filter": "user",
-				"api": "/users"
+				"filter": "user"
 			},
 			{
 				"dimension": "AlertsByOwnersCube.closed",
@@ -2512,6 +2537,10 @@
 				},
 				{
 					"member": "Groups._id",
+					"operator": "set"
+				},
+				{
+					"member": "AlertsByGroupsCube.docStatus",
 					"operator": "set"
 				}
 			],
@@ -2553,8 +2582,7 @@
 		"routerParams": [
 			{
 				"dimension": "Groups._id",
-				"filter": "user",
-				"api": "/groups"
+				"filter": "user"
 			},
 			{
 				"dimension": "AlertsByGroupsCube.open",
@@ -2633,8 +2661,7 @@
 		"routerParams": [
 			{
 				"dimension": "Users._id",
-				"filter": "user",
-				"api": "/users"
+				"filter": "user"
 			},
 			{
 				"dimension": "ImpactsByOwnersCube.closed",
@@ -2713,8 +2740,7 @@
 		"routerParams": [
 			{
 				"dimension": "Groups._id",
-				"filter": "user",
-				"api": "/groups"
+				"filter": "user"
 			},
 			{
 				"dimension": "ImpactsByGroupCube.open",
@@ -2735,14 +2761,24 @@
 				"MyRisks.count"
 			],
 			"dimensions": [
-				"RisksByStatusCube.riskStatus"
+				"RiskStatus.statusName"
 			],
 			"timeDimensions": [],
-			"filters": [],
+			"filters": [
+				{ 
+					"member": "MyRisks.user",
+					"operator": "equals",
+					"values": []
+				},
+				{
+					"member": "RiskStatus.statusName",
+					"operator": "set"
+				}
+			],
 			"limit": 10,
 			"order": [
 				[
-					"MapStatusCube.count",
+					"MyRisks.count",
 					"desc"
 				]
 			]
@@ -2755,7 +2791,7 @@
 					"measures"
 				],
 				"x": [
-					"RisksByStatusCube.riskStatus"
+					"RiskStatus.statusName"
 				]
 			},
 			"layout": "vertical",
@@ -2767,14 +2803,14 @@
 				"langKey": "i18n_LBL_REG_MAP_STATUS_COUNT"
 			},
 			{
-				"entity": "RisksByStatusCube.riskStatus",
+				"entity": "RiskStatus.statusName",
 				"langKey": "i18n_LBL_RISKS_STATUS"
 			}
 		],
 		"applicableFilters": [],
 		"routerParams": [
 			{
-				"dimension": "RisksByStatusCube.riskStatus",
+				"dimension": "RiskStatus.statusName",
 				"filter": "status"
 			}
 		]
@@ -2788,10 +2824,20 @@
 				"MyControls.count"
 			],
 			"dimensions": [
-				"ControlsByStatusCube.controlStatus"
+				"ControlStatus.statusName"
 			],
 			"timeDimensions": [],
-			"filters": [],
+			"filters": [
+				{ 
+					"member": "MyControls.user",
+					"operator": "equals",
+					"values": []
+				},
+				{
+					"member": "ControlStatus.statusName",
+					"operator": "set"
+				}
+			],
 			"limit": 10,
 			"order": [
 				[
@@ -2806,26 +2852,27 @@
 					"measures"
 				],
 				"x": [
-					"ControlsByStatusCube.controlStatus"
+					"ControlStatus.statusName"
 				]
 			},
 			"layout": "vertical",
 			"allowDecimals": false
 		},
+
 		"langMapping": [
 			{
 				"entity": "MyControls.count",
 				"langKey": "i18n_LBL_REG_MAP_STATUS_COUNT"
 			},
 			{
-				"entity": "ControlsByStatusCube.controlStatus",
+				"entity": "ControlStatus.statusName",
 				"langKey": "i18n_LBL_CONTROLS_STATUS"
 			}
 		],
 		"applicableFilters": [],
 		"routerParams": [
 			{
-				"dimension": "ControlsByStatusCube.controlStatus",
+				"dimension": "ControlStatus.statusName",
 				"filter": "status"
 			}
 		]
@@ -2853,7 +2900,13 @@
 					"asc"
 				]
 			],
-			"filters": [],
+			"filters": [
+				{ 
+					"member": "MyImpacts.user",
+					"operator": "equals",
+					"values": []
+				}
+			],
 			"dimensions": [
 				"MyImpacts.impactLevel"
 			]
@@ -2890,7 +2943,24 @@
 			}
 		],
 		"applicableFilters": [],
-		"routerParams": []
+		"routerParams": [
+			{
+				"dimension": "MyImpacts.New",
+				"filter": "status"
+			},
+			{
+				"dimension": "MyImpacts.inProcess",
+				"filter": "status"
+			},
+			{
+				"dimension": "MyImpacts.closed",
+				"filter": "status"
+			},
+			{
+				"dimension": "MyImpacts.impactLevel",
+				"filter": "impactLevel"
+			}
+		]
 	},
 	{
 		"id": "MyAlerts",
@@ -2911,7 +2981,13 @@
 					"granularity": "month"
 				}
 			],
-			"filters": [],
+			"filters": [
+				{ 
+					"member": "MyAlerts.user",
+					"operator": "equals",
+					"values": []
+				}
+			],
 			"limit": 1000,
 			"order": [
 				[
@@ -2951,7 +3027,26 @@
 			}
 		],
 		"applicableFilters": [],
-		"routerParams": []
+		"routerParams": [
+			{
+				"dimension": "MyAlerts.bills",
+				"filter": "alertCategory"
+			},
+			{
+				"dimension": "MyAlerts.agencyUpdates",
+				"filter": "alertCategory",
+				"value":["News & Publications"]
+			},
+			{
+				"dimension": "MyAlerts.regulatoryChanges",
+				"filter": "alertCategory",
+				"value":["Laws & Regulations"]
+			},
+			{
+				"dimension": "MyAlerts.publishedDate.month",
+				"filter": "publishedDate"
+			}
+		]
 	},
 	{
 		"id": "MyAlertsSLA",
@@ -2969,7 +3064,13 @@
 					"dateRange": "Last 30 days"
 				}
 			],
-			"filters": [],
+			"filters": [
+				{ 
+					"member": "MyAlertsSLA.user",
+					"operator": "equals",
+					"values": []
+				}
+			],
 			"limit": 1000,
 			"order": [
 				[
@@ -2985,12 +3086,19 @@
 				"y": [
 					"measures"
 				],
-				"x": []
+				"x": [
+					"MyAlertsSLA.status"
+				]
 			}
 		},
 		"langMapping": [],
 		"applicableFilters": [],
-		"routerParams": []
+		"routerParams": [
+			{
+				"dimension": "MyAlertsSLA.status",
+				"filter": "status"
+			}
+		]
 	},
 	{
 		"id": "MyImpactsSLA",
@@ -3008,7 +3116,13 @@
 					"dateRange": "Last 30 days"
 				}
 			],
-			"filters": [],
+			"filters": [
+				{ 
+					"member": "MyImpactsSLA.user",
+					"operator": "equals",
+					"values": []
+				}
+			],
 			"limit": 1000,
 			"order": [
 				[
@@ -3024,12 +3138,19 @@
 				"y": [
 					"measures"
 				],
-				"x": []
+				"x": [
+					"MyImpactsSLA.status"
+				]
 			}
 		},
 		"langMapping": [],
 		"applicableFilters": [],
-		"routerParams": []
+		"routerParams": [
+			{
+				"dimension": "MyImpactsSLA.status",
+				"filter": "status"
+			}
+		]
 	},
 	{
 		"id": "MyTasks",
@@ -3042,10 +3163,27 @@
 				"MyTasks.overWeek"
 			],
 			"dimensions": [
-				"MyTasks.taskStatus"
+				"TaskStatus.statusName"
 			],
 			"timeDimensions": [],
-			"filters": [],
+			"filters": [
+				{ 
+					"member": "MyTasks.user",
+					"operator": "equals",
+					"values": []
+				},
+				{
+					"member": "TaskStatus.statusName",
+					"operator": "set"
+				},
+				{
+					"member": "MyTasks.count",
+					"operator": "notEquals",
+					"values": [
+						"0"
+					]
+				}
+			],
 			"limit": 10,
 			"order": [
 				[
@@ -3057,10 +3195,10 @@
 		"meta": {
 			"pivotConfig": {
 				"y": [
-					"measures"
+					"MyTasks.dueDate"
 				],
 				"x": [
-					"MyTasks.taskStatus"
+					"TaskStatus.statusName"
 				]
 			},
 			"layout": "vertical",
@@ -3080,11 +3218,20 @@
 				"langKey": "i18n_LBL_3_OVER_WEEK"
 			},
 			{
-				"entity": "MyTasks.taskStatus",
+				"entity": "TaskStatus.statusName",
 				"langKey": "i18n_LBL_TASKS_STATUS"
 			}
 		],
 		"applicableFilters": [],
-		"routerParams": []
+		"routerParams": [
+			{
+				"dimension": "TaskStatus.statusName",
+				"filter": "status"
+			},
+			{
+				"dimension": "MyTasks.dueDate",
+				"filter": "dueDate"
+			}
+		]
 	}
 ]

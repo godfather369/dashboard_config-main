@@ -665,6 +665,9 @@
 			"table",
 			"bar"
 		],
+		"dropDownFilters": [
+			"alertsSlaDocStatus"
+		],
 		"cube": "AlertsApplicability",
 		"baseUrl": "/alerts/all-alerts",
 		"defaultTimeFilter": "> 30 days"
@@ -677,6 +680,9 @@
 		"viewType": [
 			"table",
 			"bar"
+		],
+		"dropDownFilters": [
+			"alertsGroupsSlaDocStatus"
 		],
 		"cube": "AlertsGroupApplicability",
 		"baseUrl": "/alerts/all-alerts",
@@ -709,36 +715,13 @@
 		"defaultTimeFilter": "> 30 days"
 	},
 	{
-		"id": "MyRisks",
-		"description": "Displays your risks against their status.",
-		"name": "My Risks",
-		"type": "System",
-		"cube": "MyRisks",
-		"viewType": [
-			"pie",
-			"bar",
-			"column"
-		]
-	},
-	{
-		"id": "MyControls",
-		"description": "Displays your controls against their status.",
-		"name": "My Controls",
-		"type": "System",
-		"cube": "MyControls",
-		"viewType": [
-			"pie",
-			"bar",
-			"column"
-		]
-	},
-	{
 		"id": "MyImpacts",
 		"description": "Impact Assessments assigned to me or my groups along with their impact level and status.",
 		"name": "My Impact Assessments",
 		"type": "System",
 		"cube": "MyImpacts",
 		"defaultTimeFilter": "Last 90 days",
+		"baseUrl": "/myWork/impact-assessments",
 		"viewType": [
 			"column",
 			"bar",
@@ -751,6 +734,7 @@
 		"name": "My Alerts",
 		"type": "System",
 		"cube": "MyAlerts",
+		"baseUrl": "/myWork/alerts",
 		"viewType": [
 			"line",
 			"bar",
@@ -763,6 +747,7 @@
 		"name": "My Alert Applicability SLA",
 		"type": "System",
 		"cube": "MyAlertsSLA",
+		"baseUrl": "/myWork/alerts",
 		"viewType": [
 			"pie"
 		],
@@ -774,10 +759,37 @@
 		"name": "My Impact Assessment SLA",
 		"type": "System",
 		"cube": "MyImpactsSLA",
+		"baseUrl": "/myWork/impact-assessments",
 		"viewType": [
 			"pie"
 		],
 		"defaultTimeFilter": "> 30 days"
+	},
+	{
+		"id": "MyRisks",
+		"description": "Displays your risks against their status.",
+		"name": "My Risks",
+		"type": "System",
+		"cube": "MyRisks",
+		"baseUrl": "/myWork/risks",
+		"viewType": [
+			"pie",
+			"bar",
+			"column"
+		]
+	},
+	{
+		"id": "MyControls",
+		"description": "Displays your controls against their status.",
+		"name": "My Controls",
+		"type": "System",
+		"cube": "MyControls",
+		"baseUrl": "/myWork/controls",
+		"viewType": [
+			"pie",
+			"bar",
+			"column"
+		]
 	},
 	{
 		"id": "MyTasks",
@@ -785,6 +797,7 @@
 		"name": "My Tasks",
 		"type": "System",
 		"cube": "MyTasks",
+		"baseUrl": "/myWork/tasks",
 		"viewType": [
 			"column",
 			"bar",
