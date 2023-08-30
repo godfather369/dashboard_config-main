@@ -6,6 +6,7 @@
 		"name": "Alerts Overview",
 		"type": "System",
 		"order": 1,
+		"archived":false,
 		"widgets": [
 			{
 				"layout": {
@@ -159,6 +160,7 @@
 		"name": "Bills",
 		"type": "System",
 		"order": 2,
+		"archived":false,
 		"widgets": [
 			{
 				"layout": {
@@ -256,6 +258,7 @@
 		"name": "Regulatory Changes",
 		"type": "System",
 		"order": 3,
+		"archived":false,
 		"widgets": [
 			{
 				"layout": {
@@ -350,6 +353,7 @@
 		"name": "Agency Updates",
 		"type": "System",
 		"order": 4,
+		"archived":false,
 		"widgets": [
 			{
 				"layout": {
@@ -444,6 +448,7 @@
 		"name": "Enforcement Actions Overview",
 		"type": "System",
 		"order": 5,
+		"archived":false,
 		"widgets": [
 			{
 				"layout": {
@@ -526,6 +531,7 @@
 		"name": "Compliance Overview",
 		"type": "System",
 		"order": 6,
+		"archived":false,
 		"widgets": [
 			{
 				"layout": {
@@ -608,6 +614,7 @@
 		"name": "Impact Assessment Overview",
 		"type": "System",
 		"order": 7,
+		"archived":false,
 		"widgets": [
 			{
 				"layout": {
@@ -674,6 +681,7 @@
 		"name": "Workflow SLA",
 		"type": "System",
 		"order": 8,
+		"archived":false,
 		"widgets": [
 			{
 				"layout": {
@@ -740,6 +748,7 @@
 		"name": "My Work",
 		"type": "System",
 		"order": 9,
+		"archived":false,
 		"widgets": [
 			{
 				"layout": {
