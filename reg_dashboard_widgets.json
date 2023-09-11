@@ -697,6 +697,9 @@
 			"table",
 			"bar"
 		],
+		"dropDownFilters": [
+			"impactsSlaDocStatus"
+		],
 		"cube": "ImpactAssessmentApplicability",
 		"baseUrl": "/alerts/impact-assessment",
 		"defaultTimeFilter": "> 30 days"
@@ -709,6 +712,9 @@
 		"viewType": [
 			"table",
 			"bar"
+		],
+		"dropDownFilters": [
+			"impactssGroupsSlaDocStatus"
 		],
 		"cube": "ImpactAssessmentGroupsApplicability",
 		"baseUrl": "/alerts/impact-assessment",

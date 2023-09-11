@@ -1720,6 +1720,11 @@
 				{
 					"member": "TasksCube.dueDate",
 					"operator": "set"
+				},
+				{ 
+					"member": "TasksCube.status",
+					"operator": "notEquals",
+					"values": ["Done"]
 				}
 			],
 			"limit": 10,
@@ -3171,6 +3176,11 @@
 					"member": "MyTasks.user",
 					"operator": "equals",
 					"values": []
+				},
+				{ 
+					"member": "TaskStatus.statusName",
+					"operator": "notEquals",
+					"values": ["Done"]
 				},
 				{
 					"member": "TaskStatus.statusName",

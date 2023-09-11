@@ -285,32 +285,7 @@
 			"operator": "equals",
 			"values": []
 		},
-		"options": [
-			{
-				"label": "Introduced",
-				"value": "Introduced"
-			},
-			{
-				"label": "Passed Body of Origin",
-				"value": "Passed Body of Origin"
-			},
-			{
-				"label": "Passed Second Body",
-				"value": "Passed Second Body"
-			},
-			{
-				"label": "Sent for Signature",
-				"value": "Sent for Signature"
-			},
-			{
-				"label": "Became Law",
-				"value": "Became Law"
-			},
-			{
-				"label": "Died",
-				"value": "Died"
-			}
-		],
+		"selector":"billDocStatusSelector",
 		"type": "multi"
 	},
 	{
@@ -322,64 +297,7 @@
 			"operator": "equals",
 			"values": []
 		},
-		"options": [
-			{
-				"label": "Bulletins/Reports",
-				"value": "Bulletins/Reports"
-			},
-			{
-				"label": "Calendar",
-				"value": "Calendar"
-			},
-			{
-				"label": "Enforcement Actions",
-				"value": "Enforcement Actions"
-			},
-			{
-				"label": "Feed",
-				"value": "Feed"
-			},
-			{
-				"label": "Information and Guidance",
-				"value": "Information and Guidance"
-			},
-			{
-				"label": "News/Press Releases",
-				"value": "News/Press Releases"
-			},
-			{
-				"label": "Notice",
-				"value": "Notice"
-			},
-			{
-				"label": "Proposed Rule",
-				"value": "Proposed Rule"
-			},
-			{
-				"label": "Public Notices",
-				"value": "Public Notices"
-			},
-			{
-				"label": "Publications/Communications",
-				"value": "Publications/Communications"
-			},
-			{
-				"label": "Rule",
-				"value": "Rule"
-			},
-			{
-				"label": "Rulemaking",
-				"value": "Rulemaking"
-			},
-			{
-				"label": "Settlements",
-				"value": "Settlements"
-			},
-			{
-				"label": "Presidential Document",
-				"value": "Presidential Document"
-			}
-		],
+		"selector":"agencyDocStatusSelector",
 		"type": "multi"
 	},
 	{
@@ -391,104 +309,7 @@
 			"operator": "equals",
 			"values": []
 		},
-		"options": [
-			{
-				"label": "Introduced",
-				"value": "Introduced"
-			},
-			{
-				"label": "Passed Body of Origin",
-				"value": "Passed Body of Origin"
-			},
-			{
-				"label": "Passed Second Body",
-				"value": "Passed Second Body"
-			},
-			{
-				"label": "Sent for Signature",
-				"value": "Sent for Signature"
-			},
-			{
-				"label": "Became Law",
-				"value": "Became Law"
-			},
-			{
-				"label": "Died",
-				"value": "Died"
-			},
-			{
-				"label": "Bulletins/Reports",
-				"value": "Bulletins/Reports"
-			},
-			{
-				"label": "Calendar",
-				"value": "Calendar"
-			},
-			{
-				"label": "Enforcement Actions",
-				"value": "Enforcement Actions"
-			},
-			{
-				"label": "Feed",
-				"value": "Feed"
-			},
-			{
-				"label": "Information and Guidance",
-				"value": "Information and Guidance"
-			},
-			{
-				"label": "News/Press Releases",
-				"value": "News/Press Releases"
-			},
-			{
-				"label": "Notice",
-				"value": "Notice"
-			},
-			{
-				"label": "Proposed Rule",
-				"value": "Proposed Rule"
-			},
-			{
-				"label": "Public Notices",
-				"value": "Public Notices"
-			},
-			{
-				"label": "Publications/Communications",
-				"value": "Publications/Communications"
-			},
-			{
-				"label": "Rule",
-				"value": "Rule"
-			},
-			{
-				"label": "Rulemaking",
-				"value": "Rulemaking"
-			},
-			{
-				"label": "Settlements",
-				"value": "Settlements"
-			},
-			{
-				"label": "Presidential Document",
-				"value": "Presidential Document"
-			},
-			{
-				"label": "Regulation",
-				"value": "Regulation"
-			},
-			{
-				"label": "Statute",
-				"value": "Statute"
-			},
-			{
-				"label": "Expired",
-				"value": "Expired"
-			},
-			{
-				"label": "In progress",
-				"value": "In progress"
-			}
-		],
+		"selector":"docStatusSelector",
 		"type": "multi"
 	},
 	{
@@ -500,104 +321,31 @@
 			"operator": "equals",
 			"values": []
 		},
-		"options": [
-			{
-				"label": "Introduced",
-				"value": "Introduced"
-			},
-			{
-				"label": "Passed Body of Origin",
-				"value": "Passed Body of Origin"
-			},
-			{
-				"label": "Passed Second Body",
-				"value": "Passed Second Body"
-			},
-			{
-				"label": "Sent for Signature",
-				"value": "Sent for Signature"
-			},
-			{
-				"label": "Became Law",
-				"value": "Became Law"
-			},
-			{
-				"label": "Died",
-				"value": "Died"
-			},
-			{
-				"label": "Bulletins/Reports",
-				"value": "Bulletins/Reports"
-			},
-			{
-				"label": "Calendar",
-				"value": "Calendar"
-			},
-			{
-				"label": "Enforcement Actions",
-				"value": "Enforcement Actions"
-			},
-			{
-				"label": "Feed",
-				"value": "Feed"
-			},
-			{
-				"label": "Information and Guidance",
-				"value": "Information and Guidance"
-			},
-			{
-				"label": "News/Press Releases",
-				"value": "News/Press Releases"
-			},
-			{
-				"label": "Notice",
-				"value": "Notice"
-			},
-			{
-				"label": "Proposed Rule",
-				"value": "Proposed Rule"
-			},
-			{
-				"label": "Public Notices",
-				"value": "Public Notices"
-			},
-			{
-				"label": "Publications/Communications",
-				"value": "Publications/Communications"
-			},
-			{
-				"label": "Rule",
-				"value": "Rule"
-			},
-			{
-				"label": "Rulemaking",
-				"value": "Rulemaking"
-			},
-			{
-				"label": "Settlements",
-				"value": "Settlements"
-			},
-			{
-				"label": "Presidential Document",
-				"value": "Presidential Document"
-			},
-			{
-				"label": "Regulation",
-				"value": "Regulation"
-			},
-			{
-				"label": "Statute",
-				"value": "Statute"
-			},
-			{
-				"label": "Expired",
-				"value": "Expired"
-			},
-			{
-				"label": "In progress",
-				"value": "In progress"
-			}
-		],
+		"selector":"docStatusSelector",
+		"type": "multi"
+	},
+	{
+		"id": "impactsSlaDocStatus",
+		"name": "Doc Status",
+		"category": "alertDocStatus",
+		"filter": {
+			"member": "ImpactsByOwnersCube.docStatus",
+			"operator": "equals",
+			"values": []
+		},
+		"selector":"docStatusSelector",
+		"type": "multi"
+	},
+	{
+		"id": "impactssGroupsSlaDocStatus",
+		"name": "Doc Status",
+		"category": "alertDocStatus",
+		"filter": {
+			"member": "ImpactsByGroupCube.docStatus",
+			"operator": "equals",
+			"values": []
+		},
+		"selector":"docStatusSelector",
 		"type": "multi"
 	}
 ]
