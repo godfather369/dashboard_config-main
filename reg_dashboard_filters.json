@@ -176,10 +176,6 @@
 		},
 		"options": [
 			{
-				"label": "All Alerts",
-				"value": ""
-			},
-			{
 				"label": "Bills",
 				"value": "Bills"
 			},
@@ -225,7 +221,7 @@
 	},
 	{
 		"id": "corpusTypeGeneric",
-		"name": "corpus Type",
+		"name": "Corpus",
 		"category": "status",
 		"filter": {
 			"member": "AgencyCoverageCube.corpusType",
@@ -233,10 +229,6 @@
 			"values": []
 		},
 		"options": [
-			{
-				"label": "All",
-				"value": ""
-			},
 			{
 				"label": "Bulletins/Reports",
 				"value": "Bulletins/Reports"
@@ -290,7 +282,7 @@
 	},
 	{
 		"id": "AUDocStatusGeneric",
-		"name": "Agency Updates Doc Status",
+		"name": "Doc Status",
 		"category": "docStatus",
 		"filter": {
 			"member": "AlertsCube.docStatus",
@@ -302,7 +294,7 @@
 	},
 	{
 		"id": "alertsSlaDocStatus",
-		"name": "Alerts SLA Doc Status",
+		"name": "Doc Status",
 		"category": "docStatus",
 		"filter": {
 			"member": "AlertsByOwnersCube.docStatus",
@@ -314,7 +306,7 @@
 	},
 	{
 		"id": "alertsGroupsSlaDocStatus",
-		"name": "Alerts Groups SLA Doc Status",
+		"name": "Doc Status",
 		"category": "docStatus",
 		"filter": {
 			"member": "AlertsByGroupsCube.docStatus",
@@ -347,5 +339,17 @@
 		},
 		"selector":"docStatusSelector",
 		"type": "multi"
+	},
+	{
+		"id": "masterDataGeneric",
+		"name": "Master Data",
+  		"category": "mdIds",
+		"filter": {
+			"member": "AlertsCube.grpIds",
+			"operator": "equals",
+			"values": []
+		},
+  		"options": [],
+  		"type": "hierarchy"
 	}
 ]

@@ -2770,11 +2770,6 @@
 			],
 			"timeDimensions": [],
 			"filters": [
-				{ 
-					"member": "MyRisks.user",
-					"operator": "equals",
-					"values": []
-				},
 				{
 					"member": "RiskStatus.statusName",
 					"operator": "set"
@@ -2833,11 +2828,6 @@
 			],
 			"timeDimensions": [],
 			"filters": [
-				{ 
-					"member": "MyControls.user",
-					"operator": "equals",
-					"values": []
-				},
 				{
 					"member": "ControlStatus.statusName",
 					"operator": "set"
@@ -2905,13 +2895,7 @@
 					"asc"
 				]
 			],
-			"filters": [
-				{ 
-					"member": "MyImpacts.user",
-					"operator": "equals",
-					"values": []
-				}
-			],
+			"filters": [],
 			"dimensions": [
 				"MyImpacts.impactLevel"
 			]
@@ -2986,13 +2970,7 @@
 					"granularity": "month"
 				}
 			],
-			"filters": [
-				{ 
-					"member": "MyAlerts.user",
-					"operator": "equals",
-					"values": []
-				}
-			],
+			"filters": [],
 			"limit": 1000,
 			"order": [
 				[
@@ -3069,13 +3047,7 @@
 					"dateRange": "Last 30 days"
 				}
 			],
-			"filters": [
-				{ 
-					"member": "MyAlertsSLA.user",
-					"operator": "equals",
-					"values": []
-				}
-			],
+			"filters": [],
 			"limit": 1000,
 			"order": [
 				[
@@ -3121,13 +3093,7 @@
 					"dateRange": "Last 30 days"
 				}
 			],
-			"filters": [
-				{ 
-					"member": "MyImpactsSLA.user",
-					"operator": "equals",
-					"values": []
-				}
-			],
+			"filters": [],
 			"limit": 1000,
 			"order": [
 				[
@@ -3172,11 +3138,6 @@
 			],
 			"timeDimensions": [],
 			"filters": [
-				{ 
-					"member": "MyTasks.user",
-					"operator": "equals",
-					"values": []
-				},
 				{ 
 					"member": "TaskStatus.statusName",
 					"operator": "notEquals",
