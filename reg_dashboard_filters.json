@@ -167,7 +167,7 @@
 	},
 	{
 		"id": "alertCategoryGeneric",
-		"name": "Alert category",
+		"name": "Alert Category",
 		"category": "alertCategory",
 		"filter": {
 			"member": "AlertsCube.alertCategory",
