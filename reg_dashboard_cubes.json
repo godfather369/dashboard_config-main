@@ -1405,7 +1405,7 @@
 			"dimensions": [
 				"RegulationsCube.authoritativeDocuments",
 				"RegulationsCube.citations",
-				"RegulationsCube._id"
+				"RegulationsCube.id"
 			],
 			"segments": [],
 			"timeDimensions": [
@@ -1432,7 +1432,7 @@
 				"y": [
 					"RegulationsCube.citations",
 					"RegulationsCube.authoritativeDocuments",
-					"RegulationsCube._id"
+					"RegulationsCube.id"
 				],
 				"fillMissingDates": true
 			},
@@ -1451,7 +1451,7 @@
 		"applicableFilters": [],
 		"routerParams": [
 			{
-				"dimension": "RegulationsCube._id",
+				"dimension": "RegulationsCube.id",
 				"filter": "authoritativeDocuments"
 			},
 			{
