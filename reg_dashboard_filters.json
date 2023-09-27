@@ -351,5 +351,29 @@
 		},
   		"options": [],
   		"type": "hierarchy"
+	},
+	{
+		"id": "combinedGroupsSlaDocStatus",
+		"name": "Doc Status",
+		"category": "docStatus",
+		"filter": {
+			"member": "combinedGroupsSLA.docStatus",
+			"operator": "equals",
+			"values": []
+		},
+		"selector":"docStatusSelector",
+		"type": "multi"
+	},
+	{
+		"id": "combinedOwnersSLADocStatus",
+		"name": "Doc Status",
+		"category": "docStatus",
+		"filter": {
+			"member": "combinedOwnersSLA.docStatus",
+			"operator": "equals",
+			"values": []
+		},
+		"selector":"docStatusSelector",
+		"type": "multi"
 	}
 ]

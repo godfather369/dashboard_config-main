@@ -809,5 +809,39 @@
 			"bar",
 			"table"
 		]
+	},
+	{
+		"id": "CombinedOwnersSLA",
+		"description": "Review SLA’s for Alerts and Impact assessments applicability analysis workflow for users.",
+		"name": "Alert and Impact Assessment SLA by User",
+		"type": "System",
+		"viewType": [
+			"table",
+			"pie"
+		],
+		"cube": "CombinedOwnersSLA",
+		"defaultTimeFilter": "> 45 days",
+		"filters": [],
+		"dropDownFilters": [
+			"combinedOwnersSLADocStatus"
+		],
+		"baseUrl": "/alerts/all-alerts"
+	},
+	{
+		"id": "CombinedGroupsSLA",
+		"description": "Review SLA’s for Alerts and Impact assessments applicability analysis workflow for groups.",
+		"name": "Alert and Impact Assessment SLA by Group",
+		"type": "System",
+		"viewType": [
+			"table",
+			"pie"
+		],
+		"cube": "CombinedGroupsSLA",
+		"defaultTimeFilter": "> 45 days",
+		"filters": [],
+		"dropDownFilters": [
+			"combinedGroupsSlaDocStatus"
+		],
+		"baseUrl": "/alerts/all-alerts"
 	}
 ]

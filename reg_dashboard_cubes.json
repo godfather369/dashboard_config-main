@@ -1405,7 +1405,7 @@
 			"dimensions": [
 				"RegulationsCube.authoritativeDocuments",
 				"RegulationsCube.citations",
-				"RegulationsCube.id"
+				"RegulationsCube._id"
 			],
 			"segments": [],
 			"timeDimensions": [
@@ -1432,7 +1432,7 @@
 				"y": [
 					"RegulationsCube.citations",
 					"RegulationsCube.authoritativeDocuments",
-					"RegulationsCube.id"
+					"RegulationsCube._id"
 				],
 				"fillMissingDates": true
 			},
@@ -1451,7 +1451,7 @@
 		"applicableFilters": [],
 		"routerParams": [
 			{
-				"dimension": "RegulationsCube.id",
+				"dimension": "RegulationsCube._id",
 				"filter": "authoritativeDocuments"
 			},
 			{
@@ -1721,10 +1721,12 @@
 					"member": "TasksCube.dueDate",
 					"operator": "set"
 				},
-				{ 
+				{
 					"member": "TasksCube.status",
 					"operator": "notEquals",
-					"values": ["Done"]
+					"values": [
+						"Done"
+					]
 				}
 			],
 			"limit": 10,
@@ -1966,13 +1968,11 @@
 		"name": "Impact Assessment by Impact Level ",
 		"query": {
 			"measures": [
-				"ImpactAssessmentCube.noImpact",
-				"ImpactAssessmentCube.low",
-				"ImpactAssessmentCube.medium",
-				"ImpactAssessmentCube.high",
-				"ImpactAssessmentCube.critical"
+				"ImpactAssessmentCube.count"
 			],
-			"dimensions": [],
+			"dimensions": [
+				"ImpactsByLevelCube.impactLevel"
+			],
 			"segments": [],
 			"timeDimensions": [
 				{
@@ -1995,7 +1995,7 @@
 				"joinDateRange": false,
 				"fillMissingDates": true,
 				"y": [
-					"measures"
+					"ImpactsByLevelCube.impactLevel"
 				],
 				"x": [
 					"ImpactAssessmentCube.startDate"
@@ -2029,27 +2029,11 @@
 			{
 				"dimension": "ImpactAssessmentCube.startDate",
 				"filter": "startDate"
-			},
-			{
-				"dimension": "ImpactAssessmentCube.noImpact",
-				"filter": "impactLevel"
-			},
-			{
-				"dimension": "ImpactAssessmentCube.low",
-				"filter": "impactLevel"
-			},
-			{
-				"dimension": "ImpactAssessmentCube.medium",
-				"filter": "impactLevel"
-			},
-			{
-				"dimension": "ImpactAssessmentCube.high",
-				"filter": "impactLevel"
-			},
-			{
-				"dimension": "ImpactAssessmentCube.critical",
-				"filter": "impactLevel"
-			}
+			  },
+			  {
+				"dimension": "ImpactsByLevelCube.impactLevel",
+				"filter": "IMPACT_LEVEL"
+			  }
 		]
 	},
 	{
@@ -2757,7 +2741,7 @@
 			}
 		]
 	},
-		{
+	{
 		"id": "MyRisks",
 		"category": "MyWork",
 		"name": "My Risks",
@@ -2853,7 +2837,6 @@
 			"layout": "vertical",
 			"allowDecimals": false
 		},
-
 		"langMapping": [
 			{
 				"entity": "MyControls.count",
@@ -3018,12 +3001,16 @@
 			{
 				"dimension": "MyAlerts.agencyUpdates",
 				"filter": "alertCategory",
-				"value":["News & Publications"]
+				"value": [
+					"News & Publications"
+				]
 			},
 			{
 				"dimension": "MyAlerts.regulatoryChanges",
 				"filter": "alertCategory",
-				"value":["Laws & Regulations"]
+				"value": [
+					"Laws & Regulations"
+				]
 			},
 			{
 				"dimension": "MyAlerts.publishedDate.month",
@@ -3039,7 +3026,9 @@
 			"measures": [
 				"MyAlertsSLA.count"
 			],
-			"dimensions": ["MyAlertsSLA.status"],
+			"dimensions": [
+				"MyAlertsSLA.status"
+			],
 			"segments": [],
 			"timeDimensions": [
 				{
@@ -3085,7 +3074,9 @@
 			"measures": [
 				"MyImpactsSLA.count"
 			],
-			"dimensions": ["MyImpactsSLA.status"],
+			"dimensions": [
+				"MyImpactsSLA.status"
+			],
 			"segments": [],
 			"timeDimensions": [
 				{
@@ -3138,10 +3129,12 @@
 			],
 			"timeDimensions": [],
 			"filters": [
-				{ 
+				{
 					"member": "TaskStatus.statusName",
 					"operator": "notEquals",
-					"values": ["Done"]
+					"values": [
+						"Done"
+					]
 				},
 				{
 					"member": "TaskStatus.statusName",
@@ -3202,6 +3195,684 @@
 			{
 				"dimension": "MyTasks.dueDate",
 				"filter": "dueDate"
+			}
+		]
+	},
+	{
+		"id": "CombinedOwnersSLA",
+		"category": "CombinedSLA",
+		"name": "Combined Owners SLA",
+		"applicableFilters": [],
+		"query": {
+			"measures": [
+				"combinedOwnersSLA.openOpen",
+				"combinedOwnersSLA.openClosed",
+				"combinedOwnersSLA.openMissing",
+				"combinedOwnersSLA.open",
+				"combinedOwnersSLA.closedOpen",
+				"combinedOwnersSLA.closedClosed",
+				"combinedOwnersSLA.closedMissing",
+				"combinedOwnersSLA.closed"
+			],
+			"timeDimensions": [
+				{
+					"dimension": "combinedOwnersSLA.created",
+					"dateRange": "Last year"
+				}
+			],
+			"order": {
+				"combinedOwnersSLA.open": "desc"
+			},
+			"dimensions": [
+				"Users.fullName",
+				"Users._id"
+			],
+			"filters": [
+				{
+					"member": "Users.fullName",
+					"operator": "set"
+				}
+			]
+		},
+		"meta": {
+			"pivotConfig": {
+				"joinDateRange": false,
+				"fillMissingDates": true,
+				"x": [
+					"Users.fullName",
+					"Users._id"
+				],
+				"y": [
+					"measures"
+				]
+			},
+			"pieKeysTree": [
+				{
+					"key": "combinedOwnersSLA.open",
+					"children": [
+						{
+							"key": "combinedOwnersSLA.openOpen"
+						},
+						{
+							"key": "combinedOwnersSLA.openClosed"
+						},
+						{
+							"key": "combinedOwnersSLA.openMissing"
+						}
+					]
+				},
+				{
+					"key": "combinedOwnersSLA.closed",
+					"children": [
+						{
+							"key": "combinedOwnersSLA.closedOpen"
+						},
+						{
+							"key": "combinedOwnersSLA.closedClosed"
+						},
+						{
+							"key": "combinedOwnersSLA.closedMissing"
+						}
+					]
+				}
+			]
+		},
+		"langMapping": [
+			{
+				"langKey": "i18n_LBL_OPEN_IMPACT_ASSESSMENTS",
+				"entity": "combinedOwnersSLA.openOpen"
+			},
+			{
+				"langKey": "i18n_LBL_CLOSED_IMPACT_ASSESSMENTS",
+				"entity": "combinedOwnersSLA.openClosed"
+			},
+			{
+				"langKey": "i18n_LBL_MISSING_IMPACT_ASSESSMENTS",
+				"entity": "combinedOwnersSLA.openMissing"
+			},
+			{
+				"langKey": "i18n_LBL_OPEN_IMPACT_ASSESSMENTS",
+				"entity": "combinedOwnersSLA.closedOpen"
+			},
+			{
+				"langKey": "i18n_LBL_CLOSED_IMPACT_ASSESSMENTS",
+				"entity": "combinedOwnersSLA.closedClosed"
+			},
+			{
+				"langKey": "i18n_LBL_MISSING_IMPACT_ASSESSMENTS",
+				"entity": "combinedOwnersSLA.closedMissing"
+			},
+			{
+				"langKey": "i18n_LBL_OPEN_ALERTS",
+				"entity": "combinedOwnersSLA.open"
+			},
+			{
+				"langKey": "i18n_LBL_CLOSED_ALERTS",
+				"entity": "combinedOwnersSLA.closed"
+			},
+			{
+				"langKey": "i18n_LBL_OWNERS_FULL_NAME",
+				"entity": "Users.fullName"
+			}
+		],
+		"routerParams": [
+			{
+				"dimension": "Users._id",
+				"multiFilter": [
+					{
+						"filter": "user"
+					},
+					{
+						"filter": "alertCategory",
+						"value": [
+							"Bills",
+							"Laws & Regulations",
+							"News & Publications"
+						]
+					},
+					{
+						"filter": "status",
+						"value": [
+							"Unread",
+							"In Process",
+							"Following",
+							"Applicable"
+						]
+					},
+					{
+						"filter": "excludedAlerts",
+						"value": true
+					}
+				]
+			},
+			{
+				"dimension": "combinedOwnersSLA.openOpen",
+				"multiFilter": [
+					{
+						"filter": "status",
+						"value": [
+							"Unread",
+							"In Process"
+						]
+					},
+					{
+						"filter": "excludedAlerts",
+						"value": false
+					},
+					{
+						"filter": "impactAssessmentStatus",
+						"value": [
+							"New",
+							"In Process"
+						]
+					},
+					{
+						"filter": "showIAMappedAlerts",
+						"value": true
+					},
+					{
+						"filter": "impactAssessmentOwner"
+					}
+				]
+			},
+			{
+				"dimension": "combinedOwnersSLA.openClosed",
+				"multiFilter": [
+					{
+						"filter": "status",
+						"value": [
+							"Unread",
+							"In Process"
+						]
+					},
+					{
+						"filter": "excludedAlerts",
+						"value": false
+					},
+					{
+						"filter": "impactAssessmentStatus",
+						"value": [
+							"Closed"
+						]
+					},
+					{
+						"filter": "showIAMappedAlerts",
+						"value": true
+					},
+					{
+						"filter": "impactAssessmentOwner"
+					}
+				]
+			},
+			{
+				"dimension": "combinedOwnersSLA.openMissing",
+				"multiFilter": [
+					{
+						"filter": "status",
+						"value": [
+							"Unread",
+							"In Process"
+						]
+					},
+					{
+						"filter": "excludedAlerts",
+						"value": false
+					},
+					{
+						"filter": "showAlertsNotHavingIAs",
+						"value": true
+					}
+				]
+			},
+			{
+				"dimension": "combinedOwnersSLA.open",
+				"multiFilter": [
+					{
+						"filter": "status",
+						"value": [
+							"Unread",
+							"In Process"
+						]
+					},
+					{
+						"filter": "excludedAlerts",
+						"value": false
+					}
+				]
+			},
+			{
+				"dimension": "combinedOwnersSLA.closedOpen",
+				"multiFilter": [
+					{
+						"filter": "status",
+						"value": [
+							"Following",
+							"Applicable"
+						]
+					},
+					{
+						"filter": "excludedAlerts",
+						"value": true
+					},
+					{
+						"filter": "impactAssessmentStatus",
+						"value": [
+							"New",
+							"In Process"
+						]
+					},
+					{
+						"filter": "showIAMappedAlerts",
+						"value": true
+					},
+					{
+						"filter": "impactAssessmentOwner"
+					}
+				]
+			},
+			{
+				"dimension": "combinedOwnersSLA.closedClosed",
+				"multiFilter": [
+					{
+						"filter": "status",
+						"value": [
+							"Following",
+							"Applicable"
+						]
+					},
+					{
+						"filter": "excludedAlerts",
+						"value": true
+					},
+					{
+						"filter": "impactAssessmentStatus",
+						"value": [
+							"Closed"
+						]
+					},
+					{
+						"filter": "showIAMappedAlerts",
+						"value": true
+					},
+					{
+						"filter": "impactAssessmentOwner"
+					}
+				]
+			},
+			{
+				"dimension": "combinedOwnersSLA.closedMissing",
+				"multiFilter": [
+					{
+						"filter": "status",
+						"value": [
+							"Following",
+							"Applicable"
+						]
+					},
+					{
+						"filter": "excludedAlerts",
+						"value": true
+					},
+					{
+						"filter": "showAlertsNotHavingIAs",
+						"value": true
+					}
+				]
+			},
+			{
+				"dimension": "combinedOwnersSLA.closed",
+				"multiFilter": [
+					{
+						"filter": "status",
+						"value": [
+							"Following",
+							"Applicable"
+						]
+					},
+					{
+						"filter": "excludedAlerts",
+						"value": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "CombinedGroupsSLA",
+		"category": "CombinedSLA",
+		"name": "Combined Groups SLA",
+		"applicableFilters": [],
+		"query": {
+			"measures": [
+				"combinedGroupsSLA.openOpen",
+				"combinedGroupsSLA.openClosed",
+				"combinedGroupsSLA.openMissing",
+				"combinedGroupsSLA.open",
+				"combinedGroupsSLA.closedOpen",
+				"combinedGroupsSLA.closedClosed",
+				"combinedGroupsSLA.closedMissing",
+				"combinedGroupsSLA.closed"
+			],
+			"timeDimensions": [
+				{
+					"dimension": "combinedGroupsSLA.created",
+					"dateRange": "Last year"
+				}
+			],
+			"order": {
+				"combinedSLA.openOpen": "desc"
+			},
+			"dimensions": [
+				"Groups.name",
+				"Groups._id"
+			],
+			"filters": [
+				{
+					"operator": "set",
+					"member": "Groups.name"
+				}
+			]
+		},
+		"meta": {
+			"pivotConfig": {
+				"joinDateRange": false,
+				"fillMissingDates": true,
+				"x": [
+					"Groups.name",
+					"Groups._id"
+				],
+				"y": [
+					"measures"
+				]
+			},
+			"pieKeysTree": [
+				{
+					"key": "combinedGroupsSLA.open",
+					"children": [
+						{
+							"key": "combinedGroupsSLA.openOpen"
+						},
+						{
+							"key": "combinedGroupsSLA.openClosed"
+						},
+						{
+							"key": "combinedGroupsSLA.openMissing"
+						}
+					]
+				},
+				{
+					"key": "combinedGroupsSLA.closed",
+					"children": [
+						{
+							"key": "combinedGroupsSLA.closedOpen"
+						},
+						{
+							"key": "combinedGroupsSLA.closedClosed"
+						},
+						{
+							"key": "combinedGroupsSLA.closedMissing"
+						}
+					]
+				}
+			]
+		},
+		"langMapping": [
+			{
+				"langKey": "i18n_LBL_OPEN_IMPACT_ASSESSMENTS",
+				"entity": "combinedGroupsSLA.openOpen"
+			},
+			{
+				"langKey": "i18n_LBL_CLOSED_IMPACT_ASSESSMENTS",
+				"entity": "combinedGroupsSLA.openClosed"
+			},
+			{
+				"langKey": "i18n_LBL_MISSING_IMPACT_ASSESSMENTS",
+				"entity": "combinedGroupsSLA.openMissing"
+			},
+			{
+				"langKey": "i18n_LBL_OPEN_IMPACT_ASSESSMENTS",
+				"entity": "combinedGroupsSLA.closedOpen"
+			},
+			{
+				"langKey": "i18n_LBL_CLOSED_IMPACT_ASSESSMENTS",
+				"entity": "combinedGroupsSLA.closedClosed"
+			},
+			{
+				"langKey": "i18n_LBL_MISSING_IMPACT_ASSESSMENTS",
+				"entity": "combinedGroupsSLA.closedMissing"
+			},
+			{
+				"langKey": "i18n_LBL_OPEN_ALERTS",
+				"entity": "combinedGroupsSLA.open"
+			},
+			{
+				"langKey": "i18n_LBL_CLOSED_ALERTS",
+				"entity": "combinedGroupsSLA.closed"
+			},
+			{
+				"langKey": "i18n_LBL_GROUP_NAME",
+				"entity": "Groups.name"
+			}
+		],
+		"routerParams": [
+			{
+				"dimension": "Groups._id",
+				"multiFilter": [
+					{
+						"filter": "user"
+					},
+					{
+						"filter": "alertCategory",
+						"value": [
+							"Bills",
+							"Laws & Regulations",
+							"News & Publications"
+						]
+					},
+					{
+						"filter": "status",
+						"value": [
+							"Unread",
+							"In Process",
+							"Following",
+							"Applicable"
+						]
+					},
+					{
+						"filter": "excludedAlerts",
+						"value": true
+					}
+				]
+			},
+			{
+				"dimension": "combinedGroupsSLA.openOpen",
+				"multiFilter": [
+					{
+						"filter": "status",
+						"value": [
+							"Unread",
+							"In Process"
+						]
+					},
+					{
+						"filter": "excludedAlerts",
+						"value": false
+					},
+					{
+						"filter": "impactAssessmentStatus",
+						"value": [
+							"New",
+							"In Process"
+						]
+					},
+					{
+						"filter": "showIAMappedAlerts",
+						"value": true
+					},
+					{
+						"filter": "impactAssessmentOwner"
+					}
+				]
+			},
+			{
+				"dimension": "combinedGroupsSLA.openClosed",
+				"multiFilter": [
+					{
+						"filter": "status",
+						"value": [
+							"Unread",
+							"In Process"
+						]
+					},
+					{
+						"filter": "excludedAlerts",
+						"value": false
+					},
+					{
+						"filter": "impactAssessmentStatus",
+						"value": [
+							"Closed"
+						]
+					},
+					{
+						"filter": "showIAMappedAlerts",
+						"value": true
+					},
+					{
+						"filter": "impactAssessmentOwner"
+					}
+				]
+			},
+			{
+				"dimension": "combinedGroupsSLA.openMissing",
+				"multiFilter": [
+					{
+						"filter": "status",
+						"value": [
+							"Unread",
+							"In Process"
+						]
+					},
+					{
+						"filter": "excludedAlerts",
+						"value": false
+					},
+					{
+						"filter": "showAlertsNotHavingIAs",
+						"value": true
+					}
+				]
+			},
+			{
+				"dimension": "combinedGroupsSLA.open",
+				"multiFilter": [
+					{
+						"filter": "status",
+						"value": [
+							"Unread",
+							"In Process"
+						]
+					},
+					{
+						"filter": "excludedAlerts",
+						"value": false
+					}
+				]
+			},
+			{
+				"dimension": "combinedGroupsSLA.closedOpen",
+				"multiFilter": [
+					{
+						"filter": "status",
+						"value": [
+							"Following",
+							"Applicable"
+						]
+					},
+					{
+						"filter": "excludedAlerts",
+						"value": true
+					},
+					{
+						"filter": "impactAssessmentStatus",
+						"value": [
+							"New",
+							"In Process"
+						]
+					},
+					{
+						"filter": "showIAMappedAlerts",
+						"value": true
+					},
+					{
+						"filter": "impactAssessmentOwner"
+					}
+				]
+			},
+			{
+				"dimension": "combinedGroupsSLA.closedClosed",
+				"multiFilter": [
+					{
+						"filter": "status",
+						"value": [
+							"Following",
+							"Applicable"
+						]
+					},
+					{
+						"filter": "excludedAlerts",
+						"value": true
+					},
+					{
+						"filter": "impactAssessmentStatus",
+						"value": [
+							"Closed"
+						]
+					},
+					{
+						"filter": "showIAMappedAlerts",
+						"value": true
+					},
+					{
+						"filter": "impactAssessmentOwner"
+					}
+				]
+			},
+			{
+				"dimension": "combinedGroupsSLA.closedMissing",
+				"multiFilter": [
+					{
+						"filter": "status",
+						"value": [
+							"Following",
+							"Applicable"
+						]
+					},
+					{
+						"filter": "excludedAlerts",
+						"value": true
+					},
+					{
+						"filter": "showAlertsNotHavingIAs",
+						"value": true
+					}
+				]
+			},
+			{
+				"dimension": "combinedGroupsSLA.closed",
+				"multiFilter": [
+					{
+						"filter": "status",
+						"value": [
+							"Following",
+							"Applicable"
+						]
+					},
+					{
+						"filter": "excludedAlerts",
+						"value": true
+					}
+				]
 			}
 		]
 	}
