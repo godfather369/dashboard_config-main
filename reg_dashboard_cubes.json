@@ -2880,13 +2880,15 @@
 			],
 			"filters": [],
 			"dimensions": [
-				"MyImpacts.impactLevel"
+				"ImpactsByLevelCube.impactLevel",
+				"MyImpacts.impactLevelId"
 			]
 		},
 		"meta": {
 			"pivotConfig": {
 				"x": [
-					"MyImpacts.impactLevel"
+					"ImpactsByLevelCube.impactLevel",
+					"MyImpacts.impactLevelId"
 				],
 				"y": [
 					"measures"
@@ -2911,7 +2913,7 @@
 			},
 			{
 				"langKey": "i18n_LBL_IMPACT_LEVEL",
-				"entity": "MyImpacts.impactLevel"
+				"entity": "ImpactsByLevelCube.impactLevel"
 			}
 		],
 		"applicableFilters": [],
@@ -2929,8 +2931,8 @@
 				"filter": "status"
 			},
 			{
-				"dimension": "MyImpacts.impactLevel",
-				"filter": "impactLevel"
+				"dimension": "MyImpacts.impactLevelId",
+				"filter": "IMPACT_LEVEL"
 			}
 		]
 	},
