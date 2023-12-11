@@ -339,8 +339,10 @@
 			"bar"
 		],
 		"dropDownFilters": [
-			"alertCategoryGeneric",
-			"alertStatusGeneric"
+			"alertCategoryMdDoc",
+			"alertStatusMdDoc",
+			"masterDataGeneric",
+			"unmappedMdsToggle"
 		],
 		"cube": "AlertsJurisdictionDocumentStatus",
 		"defaultTimeFilter": "Last 90 days",
@@ -620,6 +622,9 @@
 			"map"
 		],
 		"cube": "ComplianceCoverage",
+		"dropDownFilters": [
+			"ADMasterDataGeneric"
+		],
 		"baseUrl": ""
 	},
 	{

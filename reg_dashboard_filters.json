@@ -341,18 +341,6 @@
 		"type": "multi"
 	},
 	{
-		"id": "masterDataGeneric",
-		"name": "Master Data",
-  		"category": "mdIds",
-		"filter": {
-			"member": "AlertsCube.grpIds",
-			"operator": "equals",
-			"values": []
-		},
-  		"options": [],
-  		"type": "hierarchy"
-	},
-	{
 		"id": "combinedGroupsSlaDocStatus",
 		"name": "Doc Status",
 		"category": "docStatus",
@@ -375,5 +363,95 @@
 		},
 		"selector":"docStatusSelector",
 		"type": "multi"
+	},
+	{
+		"id": "masterDataGeneric",
+		"name": "Master Data",
+  		"category": "mdIds",
+		"filter": {
+			"member": "AlertsByGrpIds.MDiD",
+			"operator": "contains",
+			"values": []
+		},
+  		"options": [],
+  		"type": "hierarchy"
+	},
+	{
+		"id": "unmappedMdsToggle",
+		"name": "Unmapped MD Alerts",
+		"category": "unmappedMD",
+		"filter": {
+			"member": "AlertsByGrpIds.MDiD",
+			"operator": "notSet",
+			"values": false
+		},
+		"options": [],
+		"type": "toggle"
+	},
+	{
+		"id": "alertCategoryMdDoc",
+		"category": "alertCategory",
+		"filter": {
+			"member": "AlertsByGrpIds.alertCategory",
+			"operator": "equals",
+			"values": []
+		},
+		"name": "Alert category",
+		"options": [
+			{
+			"label": "Bills",
+			"value": "Bills"
+			},
+			{
+			"label": "Agency Updates",
+			"value": "News & Publications"
+			},
+			{
+			"label": "Regulatory Changes",
+			"value": "Laws & Regulations"
+			}
+		],
+		"type": "single"
+	},
+	{
+		"id": "alertStatusMdDoc",
+		"category": "status",
+		"filter": {
+			"member": "AlertsByGrpIds.status",
+			"operator": "equals",
+			"values": []
+		},
+		"name": "Alert Status",
+		"options": [
+			{
+			"label": "Unread",
+			"value": "Unread"
+			},
+			{
+			"label": "In Process",
+			"value": "In Process"
+			},
+			{
+			"label": "Applicable",
+			"value": "Applicable"
+			},
+			{
+			"label": "Following",
+			"value": "Following"
+			}
+		],
+		"type": "multi"
+	},
+	{
+		"id": "ADMasterDataGeneric",
+		"name": "Master Data",
+		"category": "mdIds",
+		"filter": {
+		  "member": "CoverageByJurisdictionCube.mdIds",
+		  "operator": "contains",
+		  "values": []
+		},
+		"options": [],
+		"type": "hierarchy"
 	}
 ]
