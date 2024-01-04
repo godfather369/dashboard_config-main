@@ -560,6 +560,9 @@
 			"column",
 			"table"
 		],
+			"dropDownFilters": [
+			"alertsGroupsSlaDocStatus"
+		],
 		"cube": "AlertsByGroups",
 		"defaultTimeFilter": "Last 90 days",
 		"baseUrl": "/alerts/all-alerts"
