@@ -1477,7 +1477,8 @@
 				"RisksCube.count"
 			],
 			"dimensions": [
-				"RisksCube.status"
+				"RisksCube.status",
+				"RisksCube.statusId"
 			],
 			"timeDimensions": [],
 			"filters": [],
@@ -1497,7 +1498,8 @@
 					"measures"
 				],
 				"x": [
-					"RisksCube.status"
+					"RisksCube.status",
+					"RisksCube.statusId"
 				]
 			},
 			"layout": "vertical",
@@ -1516,7 +1518,7 @@
 		"applicableFilters": [],
 		"routerParams": [
 			{
-				"dimension": "RisksCube.status",
+				"dimension": "RisksCube.statusId",
 				"filter": "status"
 			}
 		]
@@ -1530,7 +1532,8 @@
 				"ControlsCube.count"
 			],
 			"dimensions": [
-				"ControlsCube.status"
+				"ControlsCube.status",
+				"ControlsCube.statusId"
 			],
 			"timeDimensions": [],
 			"filters": [],
@@ -1548,7 +1551,8 @@
 					"measures"
 				],
 				"x": [
-					"ControlsCube.status"
+					"ControlsCube.status",
+					"ControlsCube.statusId"
 				]
 			},
 			"layout": "vertical",
@@ -1567,7 +1571,7 @@
 		"applicableFilters": [],
 		"routerParams": [
 			{
-				"dimension": "ControlsCube.status",
+				"dimension": "ControlsCube.statusId",
 				"filter": "status"
 			}
 		]
@@ -1581,7 +1585,8 @@
 				"TasksCube.count"
 			],
 			"dimensions": [
-				"TasksCube.status"
+				"TasksCube.status",
+				"TasksCube.statusId"
 			],
 			"timeDimensions": [],
 			"filters": [],
@@ -1599,7 +1604,8 @@
 					"measures"
 				],
 				"x": [
-					"TasksCube.status"
+					"TasksCube.status",
+					"TasksCube.statusId"
 				]
 			},
 			"layout": "vertical",
@@ -1618,7 +1624,7 @@
 		"applicableFilters": [],
 		"routerParams": [
 			{
-				"dimension": "TasksCube.status",
+				"dimension": "TasksCube.statusId",
 				"filter": "status"
 			}
 		]
@@ -2037,11 +2043,11 @@
 			{
 				"dimension": "ImpactAssessmentCube.startDate",
 				"filter": "startDate"
-			  },
-			  {
+			},
+			{
 				"dimension": "ImpactsByLevelCube.impactLevel",
 				"filter": "IMPACT_LEVEL"
-			  }
+			}
 		]
 	},
 	{
@@ -2758,7 +2764,8 @@
 				"MyRisks.count"
 			],
 			"dimensions": [
-				"RiskStatus.statusName"
+				"RiskStatus.statusName",
+				"MyRisks.status"
 			],
 			"timeDimensions": [],
 			"filters": [
@@ -2783,7 +2790,8 @@
 					"measures"
 				],
 				"x": [
-					"RiskStatus.statusName"
+					"RiskStatus.statusName",
+					"MyRisks.status"
 				]
 			},
 			"layout": "vertical",
@@ -2802,7 +2810,7 @@
 		"applicableFilters": [],
 		"routerParams": [
 			{
-				"dimension": "RiskStatus.statusName",
+				"dimension": "MyRisks.status",
 				"filter": "status"
 			}
 		]
@@ -2816,7 +2824,8 @@
 				"MyControls.count"
 			],
 			"dimensions": [
-				"ControlStatus.statusName"
+				"ControlStatus.statusName",
+				"MyControls.status"
 			],
 			"timeDimensions": [],
 			"filters": [
@@ -2839,7 +2848,8 @@
 					"measures"
 				],
 				"x": [
-					"ControlStatus.statusName"
+					"ControlStatus.statusName",
+					"MyControls.status"
 				]
 			},
 			"layout": "vertical",
@@ -2858,7 +2868,7 @@
 		"applicableFilters": [],
 		"routerParams": [
 			{
-				"dimension": "ControlStatus.statusName",
+				"dimension": "MyControls.status",
 				"filter": "status"
 			}
 		]
@@ -3135,7 +3145,8 @@
 				"MyTasks.overWeek"
 			],
 			"dimensions": [
-				"TaskStatus.statusName"
+				"TaskStatus.statusName",
+				"MyTasks.status"
 			],
 			"timeDimensions": [],
 			"filters": [
@@ -3172,7 +3183,8 @@
 					"MyTasks.dueDate"
 				],
 				"x": [
-					"TaskStatus.statusName"
+					"TaskStatus.statusName",
+					"MyTasks.status"
 				]
 			},
 			"layout": "vertical",
@@ -3199,7 +3211,7 @@
 		"applicableFilters": [],
 		"routerParams": [
 			{
-				"dimension": "TaskStatus.statusName",
+				"dimension": "MyTasks.status",
 				"filter": "status"
 			},
 			{
