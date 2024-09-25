@@ -497,7 +497,7 @@
 			"segments": [],
 			"timeDimensions": [
 				{
-					"dimension": "AlertsByOwnersCube.publishedDate",
+					"dimension": "AlertsByOwnersCube.created",
 					"dateRange": "Last 90 days"
 				}
 			],
@@ -1524,6 +1524,61 @@
 		]
 	},
 	{
+		"id": "RequirementsByStatus",
+		"category": "Compliance",
+		"name": "Requirements by Status",
+		"query": {
+			"measures": [
+				"RequirementsCube.count"
+			],
+			"dimensions": [
+				"RequirementsCube.status",
+				"RequirementsCube.statusId"
+			],
+			"timeDimensions": [],
+			"filters": [],
+			"limit": 10,
+			"order": [
+				[
+					"RequirementsCube.count",
+					"desc"
+				]
+			]
+		},
+		"meta": {
+			"pivotConfig": {
+				"joinDateRange": false,
+				"fillMissingDates": true,
+				"y": [
+					"measures"
+				],
+				"x": [
+					"RequirementsCube.status",
+					"RequirementsCube.statusId"
+				]
+			},
+			"layout": "vertical",
+			"allowDecimals": false
+		},
+		"langMapping": [
+			{
+				"entity": "RequirementsCube.count",
+				"langKey": "i18n_LBL_REG_MAP_STATUS_COUNT"
+			},
+			{
+				"entity": "RequirementsCube.status",
+				"langKey": "i18n_LBL_REQUIREMENTS_STATUS"
+			}
+		],
+		"applicableFilters": [],
+		"routerParams": [
+			{
+				"dimension": "RequirementsCube.statusId",
+				"filter": "status"
+			}
+		]
+	},
+	{
 		"id": "ControlsByStatus",
 		"category": "Compliance",
 		"name": "Controls by Status",
@@ -1630,14 +1685,15 @@
 		]
 	},
 	{
-		"id": "OwnersOfRisksControlsTasks",
+		"id": "OwnersOfRisksControlsTasksRequirements",
 		"category": "Compliance",
-		"name": "Owners of Risks Controls and Tasks",
+		"name": "Owners of Risks Controls Tasks and Requirements",
 		"query": {
 			"measures": [
 				"MapOwnersCube.riskCount",
 				"MapOwnersCube.controlCount",
 				"MapOwnersCube.taskCount",
+				"MapOwnersCube.requirementCount",
 				"MapOwnersCube.total"
 			],
 			"dimensions": [
@@ -1695,6 +1751,10 @@
 			{
 				"entity": "MapOwnersCube.total",
 				"langKey": "i18n_LBL_ALERTS_TOTAL_COUNT"
+			},
+			{
+				"entity": "MapOwnersCube.requirementCount",
+				"langKey": "i18n_LBL_REG_REQUIREMENTS_COUNT"
 			}
 		],
 		"applicableFilters": [],
@@ -1714,6 +1774,10 @@
 			{
 				"dimension": "MapOwnersCube.controlCount",
 				"route": "/controls"
+			},
+			{
+				"dimension": "MapOwnersCube.requirementCount",
+				"route": "/requirements"
 			}
 		]
 	},
@@ -1736,10 +1800,10 @@
 					"operator": "set"
 				},
 				{
-					"member": "TasksCube.status",
+					"member": "TasksCube.statusId",
 					"operator": "notEquals",
 					"values": [
-						"Done"
+						"TSAC"
 					]
 				}
 			],
@@ -1802,7 +1866,7 @@
 			"segments": [],
 			"timeDimensions": [
 				{
-					"dimension": "AlertsByGroupsCube.publishedDate",
+					"dimension": "AlertsByGroupsCube.created",
 					"dateRange": "Last 90 days"
 				}
 			],
@@ -2433,7 +2497,7 @@
 	},
 	{
 		"id": "AlertsApplicability",
-		"category": "Coverage",
+		"category": "SLA",
 		"name": "Alerts Applicability",
 		"query": {
 			"measures": [
@@ -2515,8 +2579,78 @@
 		]
 	},
 	{
+		"id": "OpenAlertsOrIAsApplicability",
+		"category": "SLA",
+		"name": "Open Alerts or Impact Assessments Applicability",
+		"query": {
+			"measures": [
+				"OpenAlertsOrIAsOwnersSLA.openAlertsOrIAsCount"
+			],
+			"timeDimensions": [
+				{
+					"dimension": "OpenAlertsOrIAsOwnersSLA.created",
+					"dateRange": "Last 30 days"
+				}
+			],
+			"dimensions": [
+				"Users.fullName",
+				"Users._id"
+			],
+			"filters": [
+				{
+					"member": "Users.fullName",
+					"operator": "set"
+				},
+				{
+					"member": "Users._id",
+					"operator": "set"
+				},
+				{
+					"member": "OpenAlertsOrIAsOwnersSLA.docStatus",
+					"operator": "set"
+				}
+			],
+			"order": [
+				[
+					"OpenAlertsOrIAsOwnersSLA.openAlertsOrIAsCount",
+					"desc"
+				]
+			]
+		},
+		"meta": {
+			"pivotConfig": {
+				"joinDateRange": false,
+				"fillMissingDates": true,
+				"y": [
+					"measures"
+				],
+				"x": [
+					"Users.fullName",
+					"Users._id"
+				]
+			}
+		},
+		"langMapping": [
+			{
+				"langKey": "i18n_LBL_OWNERS_FULL_NAME",
+				"entity": "Users.fullName"
+			},
+			{
+				"langKey": "i18n_LBL_OPEN_ALERTS_OR_IA",
+				"entity": "OpenAlertsOrIAsOwnersSLA.openAlertsOrIAsCount"
+			}
+		],
+		"applicableFilters": [],
+		"routerParams": [
+			{
+				"dimension": "Users._id",
+				"filter": "user"
+			}
+		]
+	},
+	{
 		"id": "AlertsGroupApplicability",
-		"category": "Coverage",
+		"category": "SLA",
 		"name": "Alerts Group Applicability",
 		"query": {
 			"measures": [
@@ -2598,8 +2732,78 @@
 		]
 	},
 	{
+		"id": "OpenAlertsOrIAsGroupApplicability",
+		"category": "SLA",
+		"name": "Oepn Alerts or Impact Assessments Group Applicability",
+		"query": {
+			"measures": [
+				"OpenAlertsOrIAsGroupsSLA.openAlertsOrIAsCount"
+			],
+			"timeDimensions": [
+				{
+					"dimension": "OpenAlertsOrIAsGroupsSLA.created",
+					"dateRange": "Last 30 days"
+				}
+			],
+			"dimensions": [
+				"Groups.name",
+				"Groups._id"
+			],
+			"filters": [
+				{
+					"member": "Groups.name",
+					"operator": "set"
+				},
+				{
+					"member": "Groups._id",
+					"operator": "set"
+				},
+				{
+					"member": "OpenAlertsOrIAsGroupsSLA.docStatus",
+					"operator": "set"
+				}
+			],
+			"order": [
+				[
+					"OpenAlertsOrIAsGroupsSLA.openAlertsOrIAsCount",
+					"desc"
+				]
+			]
+		},
+		"meta": {
+			"pivotConfig": {
+				"joinDateRange": false,
+				"fillMissingDates": true,
+				"y": [
+					"measures"
+				],
+				"x": [
+					"Groups.name",
+					"Groups._id"
+				]
+			}
+		},
+		"langMapping": [
+			{
+				"langKey": "i18n_LBL_GROUP_NAME",
+				"entity": "Groups.name"
+			},
+			{
+				"langKey": "i18n_LBL_OPEN_ALERTS_OR_IA",
+				"entity": "OpenAlertsOrIAsGroupsSLA.openAlertsOrIAsCount"
+			}
+		],
+		"applicableFilters": [],
+		"routerParams": [
+			{
+				"dimension": "Groups._id",
+				"filter": "user"
+			}
+		]
+	},
+	{
 		"id": "ImpactAssessmentApplicability",
-		"category": "Coverage",
+		"category": "SLA",
 		"name": "Impact Assessment Applicability",
 		"query": {
 			"measures": [
@@ -2678,7 +2882,7 @@
 	},
 	{
 		"id": "ImpactAssessmentGroupsApplicability",
-		"category": "Coverage",
+		"category": "SLA",
 		"name": "Impact Assessment Applicability by Groups",
 		"query": {
 			"measures": [
@@ -2811,6 +3015,66 @@
 		"routerParams": [
 			{
 				"dimension": "MyRisks.status",
+				"filter": "status"
+			}
+		]
+	},
+	{
+		"id": "MyRequirements",
+		"category": "MyWork",
+		"name": "My Requirements",
+		"query": {
+			"measures": [
+				"MyRequirements.count"
+			],
+			"dimensions": [
+				"RequirementStatus.statusName",
+				"MyRequirements.status"
+			],
+			"timeDimensions": [],
+			"filters": [
+				{
+					"member": "RequirementStatus.statusName",
+					"operator": "set"
+				}
+			],
+			"limit": 10,
+			"order": [
+				[
+					"MyRequirements.count",
+					"desc"
+				]
+			]
+		},
+		"meta": {
+			"pivotConfig": {
+				"joinDateRange": false,
+				"fillMissingDates": true,
+				"y": [
+					"measures"
+				],
+				"x": [
+					"RequirementStatus.statusName",
+					"MyRequirements.status"
+				]
+			},
+			"layout": "vertical",
+			"allowDecimals": false
+		},
+		"langMapping": [
+			{
+				"entity": "MyRequirements.count",
+				"langKey": "i18n_LBL_REG_MAP_STATUS_COUNT"
+			},
+			{
+				"entity": "RequirementStatus.statusName",
+				"langKey": "i18n_LBL_REQUIREMENTS_STATUS"
+			}
+		],
+		"applicableFilters": [],
+		"routerParams": [
+			{
+				"dimension": "MyRequirements.status",
 				"filter": "status"
 			}
 		]
@@ -3040,7 +3304,7 @@
 	},
 	{
 		"id": "MyAlertsSLA",
-		"category": "MyWorkSLA",
+		"category": "SLA",
 		"name": "My Alerts SLA",
 		"query": {
 			"measures": [
@@ -3088,7 +3352,7 @@
 	},
 	{
 		"id": "MyImpactsSLA",
-		"category": "MyWorkSLA",
+		"category": "SLA",
 		"name": "My Impacts SLA",
 		"query": {
 			"measures": [

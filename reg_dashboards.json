@@ -6,7 +6,7 @@
 		"name": "Alerts Overview",
 		"type": "System",
 		"order": 1,
-		"archived":false,
+		"archived": false,
 		"widgets": [
 			{
 				"layout": {
@@ -160,7 +160,7 @@
 		"name": "Bills",
 		"type": "System",
 		"order": 2,
-		"archived":false,
+		"archived": false,
 		"widgets": [
 			{
 				"layout": {
@@ -258,7 +258,7 @@
 		"name": "Regulatory Changes",
 		"type": "System",
 		"order": 3,
-		"archived":false,
+		"archived": false,
 		"widgets": [
 			{
 				"layout": {
@@ -353,7 +353,7 @@
 		"name": "Agency Updates",
 		"type": "System",
 		"order": 4,
-		"archived":false,
+		"archived": false,
 		"widgets": [
 			{
 				"layout": {
@@ -448,7 +448,7 @@
 		"name": "Enforcement Actions Overview",
 		"type": "System",
 		"order": 5,
-		"archived":false,
+		"archived": false,
 		"widgets": [
 			{
 				"layout": {
@@ -531,7 +531,7 @@
 		"name": "Compliance Overview",
 		"type": "System",
 		"order": 6,
-		"archived":false,
+		"archived": false,
 		"widgets": [
 			{
 				"layout": {
@@ -582,7 +582,21 @@
 					"w": 6,
 					"h": 2
 				},
-				"widgetId": "OwnersOfRisksControlsTasks",
+				"widgetId": "RequirementsByStatus",
+				"viewType": [
+					"bar",
+					"column",
+					"pie"
+				]
+			},
+			{
+				"layout": {
+					"x": 0,
+					"y": 4,
+					"w": 6,
+					"h": 2
+				},
+				"widgetId": "OwnersOfRisksControlsTasksRequirements",
 				"viewType": [
 					"pie",
 					"bar",
@@ -592,7 +606,7 @@
 			},
 			{
 				"layout": {
-					"x": 0,
+					"x": 6,
 					"y": 4,
 					"w": 6,
 					"h": 2
@@ -614,7 +628,7 @@
 		"name": "Impact Assessment Overview",
 		"type": "System",
 		"order": 7,
-		"archived":false,
+		"archived": false,
 		"widgets": [
 			{
 				"layout": {
@@ -681,7 +695,7 @@
 		"name": "Workflow SLA",
 		"type": "System",
 		"order": 8,
-		"archived":false,
+		"archived": false,
 		"widgets": [
 			{
 				"layout": {
@@ -713,7 +727,7 @@
 			},
 			{
 				"layout": {
-					"x": 6,
+					"x": 0,
 					"y": 4,
 					"w": 12,
 					"h": 2
@@ -727,7 +741,7 @@
 			},
 			{
 				"layout": {
-					"x": 6,
+					"x": 0,
 					"y": 6,
 					"w": 12,
 					"h": 2
@@ -736,6 +750,32 @@
 				"viewType": [
 					"table",
 					"bar"
+				],
+				"defaultTimeFilter": "> 30 days"
+			},
+			{
+				"layout": {
+					"x": 0,
+					"y": 8,
+					"w": 12,
+					"h": 2
+				},
+				"widgetId": "OpenAlertsOrIAsApplicability",
+				"viewType": [
+					"table"
+				],
+				"defaultTimeFilter": "> 30 days"
+			},
+			{
+				"layout": {
+					"x": 0,
+					"y": 10,
+					"w": 12,
+					"h": 2
+				},
+				"widgetId": "OpenAlertsOrIAsGroupApplicability",
+				"viewType": [
+					"table"
 				],
 				"defaultTimeFilter": "> 30 days"
 			}
@@ -748,7 +788,7 @@
 		"name": "My Work",
 		"type": "System",
 		"order": 9,
-		"archived":false,
+		"archived": false,
 		"widgets": [
 			{
 				"layout": {
@@ -845,6 +885,20 @@
 					"column",
 					"bar",
 					"table"
+				]
+			},
+			{
+				"layout": {
+					"x": 6,
+					"y": 6,
+					"w": 6,
+					"h": 2
+				},
+				"widgetId": "MyRequirements",
+				"viewType": [
+					"pie",
+					"bar",
+					"column"
 				]
 			}
 		]

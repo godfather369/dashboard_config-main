@@ -447,6 +447,19 @@
 		"baseUrl": "/risks"
 	},
 	{
+		"id": "RequirementsByStatus",
+		"description": "Provides a holistic view of all the requirements along with their assigned status.",
+		"name": "Requirements by Status",
+		"type": "System",
+		"cube": "RequirementsByStatus",
+		"viewType": [
+			"bar",
+			"column",
+			"pie"
+		],
+		"baseUrl": "/requirements"
+	},
+	{
 		"id": "ControlsByStatus",
 		"description": "Provides a holistic view of all the controls along with their assigned status.",
 		"name": "Controls by Status",
@@ -473,11 +486,11 @@
 		"baseUrl": "/tasks"
 	},
 	{
-		"id": "OwnersOfRisksControlsTasks",
-		"description": "Shows the total number of Risks, Controls, and Tasks owned by each owner.",
-		"name": "Owners of Risks, Controls & Tasks",
+		"id": "OwnersOfRisksControlsTasksRequirements",
+		"description": "Shows the total number of Risks, Controls, Tasks, and Requirements owned by each owner.",
+		"name": "Owners of Risks, Controls, Tasks & Requirements",
 		"type": "System",
-		"cube": "OwnersOfRisksControlsTasks",
+		"cube": "OwnersOfRisksControlsTasksRequirements",
 		"viewType": [
 			"pie",
 			"bar",
@@ -560,7 +573,7 @@
 			"column",
 			"table"
 		],
-			"dropDownFilters": [
+		"dropDownFilters": [
 			"alertsGroupsSlaDocStatus"
 		],
 		"cube": "AlertsByGroups",
@@ -697,9 +710,39 @@
 		"defaultTimeFilter": "> 30 days"
 	},
 	{
+		"id": "OpenAlertsOrIAsApplicability",
+		"description": "Review SLAs for Open Alerts or Impact Assessment Applicability analysis workflow",
+		"name": "Open Alerts or Impact Assessment Applicability SLA",
+		"type": "System",
+		"viewType": [
+			"table"
+		],
+		"dropDownFilters": [
+			"openAlertsOrIAsSlaDocStatus"
+		],
+		"cube": "OpenAlertsOrIAsApplicability",
+		"baseUrl": "/alerts/all-alerts",
+		"defaultTimeFilter": "> 30 days"
+	},
+	{
+		"id": "OpenAlertsOrIAsGroupApplicability",
+		"description": "Review group-wise SLAs for Open Alerts or Impact Assessment Applicability analysis workflow",
+		"name": "Open Alerts or Impact Assessment Applicability SLA by Groups",
+		"type": "System",
+		"viewType": [
+			"table"
+		],
+		"dropDownFilters": [
+			"openAlertsOrIAsGroupsSlaDocStatus"
+		],
+		"cube": "OpenAlertsOrIAsGroupApplicability",
+		"baseUrl": "/alerts/all-alerts",
+		"defaultTimeFilter": "> 30 days"
+	},
+	{
 		"id": "ImpactAssessmentApplicability",
 		"description": "Review SLA’s for Impact assessment applicability analysis workflow",
-		"name": "Impact Assessment SLA",
+		"name": "Impact Assessment Applicability SLA",
 		"type": "System",
 		"viewType": [
 			"table",
@@ -786,6 +829,19 @@
 		"type": "System",
 		"cube": "MyRisks",
 		"baseUrl": "/myWork/risks",
+		"viewType": [
+			"pie",
+			"bar",
+			"column"
+		]
+	},
+	{
+		"id": "MyRequirements",
+		"description": "Displays your requirements against their status.",
+		"name": "My Requirements",
+		"type": "System",
+		"cube": "MyRequirements",
+		"baseUrl": "/myWork/requirements",
 		"viewType": [
 			"pie",
 			"bar",

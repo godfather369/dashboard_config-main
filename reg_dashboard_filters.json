@@ -305,11 +305,35 @@
 		"type": "multi"
 	},
 	{
+		"id": "openAlertsOrIAsSlaDocStatus",
+		"name": "Doc Status",
+		"category": "docStatus",
+		"filter": {
+			"member": "OpenAlertsOrIAsOwnersSLA.docStatus",
+			"operator": "equals",
+			"values": []
+		},
+		"selector":"docStatusSelector",
+		"type": "multi"
+	},
+	{
 		"id": "alertsGroupsSlaDocStatus",
 		"name": "Doc Status",
 		"category": "docStatus",
 		"filter": {
 			"member": "AlertsByGroupsCube.docStatus",
+			"operator": "equals",
+			"values": []
+		},
+		"selector":"docStatusSelector",
+		"type": "multi"
+	},
+	{
+		"id": "openAlertsOrIAsGroupsSlaDocStatus",
+		"name": "Doc Status",
+		"category": "docStatus",
+		"filter": {
+			"member": "OpenAlertsOrIAsGroupsSLA.docStatus",
 			"operator": "equals",
 			"values": []
 		},
