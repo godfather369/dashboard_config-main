@@ -215,6 +215,10 @@
 			{
 				"label": "Following",
 				"value": "Following"
+			},
+			{
+				"label": "Duplicate",
+				"value": "Duplicate"
 			}
 		],
 		"type": "multi"
@@ -462,6 +466,10 @@
 			{
 			"label": "Following",
 			"value": "Following"
+			},
+			{
+			"label": "Duplicate",
+			"value": "Duplicate"
 			}
 		],
 		"type": "multi"
@@ -477,5 +485,29 @@
 		},
 		"options": [],
 		"type": "hierarchy"
-	}
+	},
+	{
+		"id": "quarterlyByTeamDocStatusFilter",
+		"category": "docStatus",
+		"filter": {
+		  "member": "QuarterlyAlertsByGroups.docStatus",
+		  "operator": "equals",
+		  "values": []
+		},
+		"name": "Doc Status",
+		"selector": "docStatusSelector",
+		"type": "multi"
+	  },
+	  {
+		"id": "quarterlyAlertsDocStatusFilter",
+		"category": "docStatus",
+		"filter": {
+		  "member": "QuarterlyAlertsCube.docStatus",
+		  "operator": "equals",
+		  "values": []
+		},
+		"name": "Doc Status",
+		"selector": "docStatusSelector",
+		"type": "multi"
+	  }
 ]

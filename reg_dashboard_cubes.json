@@ -156,7 +156,8 @@
 				"AlertsCube.unread",
 				"AlertsCube.inProcess",
 				"AlertsCube.applicable",
-				"AlertsCube.following"
+				"AlertsCube.following",
+				"AlertsCube.duplicate"
 			],
 			"dimensions": [],
 			"segments": [],
@@ -206,6 +207,10 @@
 				"langKey": "i18n_LBL_ALERTS_FOLLOWING"
 			},
 			{
+				"entity": "AlertsCube.duplicate",
+				"langKey": "i18n_LBL_ALERTS_DUPLICATE"
+			},
+			{
 				"entity": "AlertsCube.publishedDate",
 				"langKey": "i18n_LBL_ALERTS_PUBLISHED_DATE"
 			}
@@ -233,6 +238,10 @@
 				"filter": "status"
 			},
 			{
+				"dimension": "AlertsCube.duplicate",
+				"filter": "status"
+			},
+			{
 				"dimension": "AlertsCube.applicable",
 				"filter": "status"
 			}
@@ -248,6 +257,7 @@
 				"AlertsCube.inProcess",
 				"AlertsCube.applicable",
 				"AlertsCube.following",
+				"AlertsCube.duplicate",
 				"AlertsCube.totalCount"
 			],
 			"dimensions": [
@@ -297,6 +307,10 @@
 					"desc"
 				],
 				[
+					"AlertsCube.duplicate",
+					"desc"
+				],
+				[
 					"AlertsCube.totalCount",
 					"desc"
 				]
@@ -327,6 +341,10 @@
 			{
 				"entity": "AlertsCube.following",
 				"langKey": "i18n_LBL_ALERTS_FOLLOWING"
+			},
+			{
+				"entity": "AlertsCube.duplicate",
+				"langKey": "i18n_LBL_ALERTS_DUPLICATE"
 			},
 			{
 				"entity": "AlertsCube.applicable",
@@ -360,6 +378,10 @@
 				"filter": "status"
 			},
 			{
+				"dimension": "AlertsCube.duplicate",
+				"filter": "status"
+			},
+			{
 				"dimension": "AlertsCube.applicable",
 				"filter": "status"
 			}
@@ -375,6 +397,7 @@
 				"AlertsByAgencyCube.inProcess",
 				"AlertsByAgencyCube.applicable",
 				"AlertsByAgencyCube.following",
+				"AlertsByAgencyCube.duplicate",
 				"AlertsByAgencyCube.totalCount"
 			],
 			"timeDimensions": [
@@ -442,6 +465,10 @@
 				"langKey": "i18n_LBL_ALERTS_FOLLOWING"
 			},
 			{
+				"entity": "AlertsByAgencyCube.duplicate",
+				"langKey": "i18n_LBL_ALERTS_DUPLICATE"
+			},
+			{
 				"entity": "AlertsByAgencyCube.totalCount",
 				"langKey": "i18n_LBL_ALERTS_TOTAL_COUNT"
 			},
@@ -473,6 +500,10 @@
 				"filter": "status"
 			},
 			{
+				"dimension": "AlertsByAgencyCube.duplicate",
+				"filter": "status"
+			},
+			{
 				"dimension": "AlertsByAgencyCube.applicable",
 				"filter": "status"
 			}
@@ -488,6 +519,7 @@
 				"AlertsByOwnersCube.inProcess",
 				"AlertsByOwnersCube.applicable",
 				"AlertsByOwnersCube.following",
+				"AlertsByOwnersCube.duplicate",
 				"AlertsByOwnersCube.totalCount"
 			],
 			"dimensions": [
@@ -561,6 +593,10 @@
 				"entity": "AlertsByOwnersCube.following"
 			},
 			{
+				"langKey": "i18n_LBL_ALERTS_DUPLICATE",
+				"entity": "AlertsByOwnersCube.duplicate"
+			},
+			{
 				"langKey": "i18n_LBL_OWNERS_FULL_NAME",
 				"entity": "Users.fullName"
 			}
@@ -585,6 +621,10 @@
 			},
 			{
 				"dimension": "AlertsByOwnersCube.following",
+				"filter": "status"
+			},
+			{
+				"dimension": "AlertsByOwnersCube.duplicate",
 				"filter": "status"
 			},
 			{
@@ -668,6 +708,7 @@
 				"AlertsCube.inProcess",
 				"AlertsCube.applicable",
 				"AlertsCube.following",
+				"AlertsCube.duplicate",
 				"AlertsCube.totalCount"
 			],
 			"dimensions": [
@@ -746,6 +787,10 @@
 				"entity": "AlertsCube.following"
 			},
 			{
+				"langKey": "i18n_LBL_ALERTS_DUPLICATE",
+				"entity": "AlertsCube.duplicate"
+			},
+			{
 				"langKey": "i18n_LBL_ALERTS_JURISDICTION_NAME",
 				"entity": "Jurisdiction.displayName"
 			}
@@ -766,6 +811,10 @@
 			},
 			{
 				"dimension": "AlertsCube.following",
+				"filter": "status"
+			},
+			{
+				"dimension": "AlertsCube.duplicate",
 				"filter": "status"
 			},
 			{
@@ -1073,7 +1122,7 @@
 				"filter": "docStatus"
 			},
 			{
-				"dimension": "AlertsCube.becameLawStatus",
+				"dimension": "AlertsCube.sentForSignatureStatus",
 				"filter": "docStatus"
 			}
 		]
@@ -1856,6 +1905,7 @@
 				"AlertsByGroupsCube.inProcess",
 				"AlertsByGroupsCube.applicable",
 				"AlertsByGroupsCube.following",
+				"AlertsByGroupsCube.duplicate",
 				"AlertsByGroupsCube.excluded",
 				"AlertsByGroupsCube.totalCount"
 			],
@@ -1923,6 +1973,10 @@
 				"entity": "AlertsByGroupsCube.following"
 			},
 			{
+				"langKey": "i18n_LBL_ALERTS_DUPLICATE",
+				"entity": "AlertsByGroupsCube.duplicate"
+			},
+			{
 				"langKey": "i18n_LBL_ALERTS_EXCLUDED",
 				"entity": "AlertsByGroupsCube.excluded"
 			},
@@ -1955,6 +2009,10 @@
 			},
 			{
 				"dimension": "AlertsByGroupsCube.following",
+				"filter": "status"
+			},
+			{
+				"dimension": "AlertsByGroupsCube.duplicate",
 				"filter": "status"
 			},
 			{
@@ -2608,6 +2666,13 @@
 				{
 					"member": "OpenAlertsOrIAsOwnersSLA.docStatus",
 					"operator": "set"
+				},
+				{
+					"member": "OpenAlertsOrIAsOwnersSLA.openAlertsOrIAsCount",
+					"operator": "notEquals",
+					"values": [
+						"0"
+					]
 				}
 			],
 			"order": [
@@ -2761,6 +2826,13 @@
 				{
 					"member": "OpenAlertsOrIAsGroupsSLA.docStatus",
 					"operator": "set"
+				},
+				{
+					"member": "OpenAlertsOrIAsGroupsSLA.openAlertsOrIAsCount",
+					"operator": "notEquals",
+					"values": [
+						"0"
+					]
 				}
 			],
 			"order": [
@@ -4111,5 +4183,243 @@
 				]
 			}
 		]
-	}
+	},
+	{
+		"id": "QuarterlyAlerts",
+		"applicableFilters": [
+		  
+		],
+		"category": "Alerts",
+		"langMapping": [
+		  {
+			"entity": "QuarterlyAlertsCube.applicable",
+			"langKey": "i18n_LBL_ALERTS_APPLICABLE"
+		  },
+		  {
+			"entity": "QuarterlyAlertsCube.following",
+			"langKey": "i18n_LBL_ALERTS_FOLLOWING"
+		  },
+		  {
+			"entity": "QuarterlyAlertsCube.open",
+			"langKey": "i18n_LBL_OPEN"
+		  },
+		  {
+			"entity": "QuarterlyAlertsCube.excluded",
+			"langKey": "i18n_LBL_ALERTS_EXCLUDED"
+		  },
+		  {
+			"entity": "QuarterlyAlertsCube.potentialImp",
+			"langKey": "i18n_LBL_POTENTIAL_IMP"
+		  },
+		  {
+			"entity": "QuarterlyAlertsCube.totalCount",
+			"langKey": "i18n_LBL_CONST_TOTAL"
+		  }
+		],
+		"meta": {
+		  "pivotConfig": {
+			"joinDateRange": false,
+			"fillMissingDates": true,
+			"y": [],
+			"x": [
+			  "measures"
+			]
+		  },
+		  "widgetType": "PerQuarter",
+		  "showLegend": false
+		},
+		"name": "Quarterly Alerts",
+		"query": {
+		  "measures": [
+			"QuarterlyAlertsCube.applicable",
+			"QuarterlyAlertsCube.following",
+			"QuarterlyAlertsCube.open",
+			"QuarterlyAlertsCube.excluded",
+			"QuarterlyAlertsCube.potentialImp",
+			"QuarterlyAlertsCube.totalCount"
+		  ],
+		  "dimensions": [],
+		  "segments": [],
+		  "timeDimensions": [
+			{
+			  "dimension": "QuarterlyAlertsCube.created"
+			}
+		  ],
+		  "filters": [],
+		  "limit": 10,
+		  "order": [
+			[
+			  "AlertsByImpactLevel.totalCount",
+			  "desc"
+			]
+		  ]
+		},
+		"routerParams": [
+			  {
+				"dimension": "QuarterlyAlertsCube.applicable",
+				"filter": "status"
+			  },
+			  {
+				"dimension": "QuarterlyAlertsCube.following",
+				"filter": "status"
+			  },
+			  {
+				"dimension": "QuarterlyAlertsCube.open",
+				"filter": "status"
+			  },
+			  {
+				"dimension": "QuarterlyAlertsCube.excluded",
+				"filter": "excludedAlerts",
+				"value": true
+			  },
+			  {
+				"dimension": "QuarterlyAlertsCube.potentialImp",
+				"filter": "iaCustomAttributes",
+				"value": {
+				  "IMPACT_LEVEL": [
+					"CB - N/A"
+				  ]
+				}
+			  },
+			  {
+				"dimension": "QuarterlyAlertsCube.potentialImp",
+				"filter": "status",
+				"value": [
+				  "Applicable",
+				  "Following"
+				]
+			  },
+			  {
+				"dimension": "QuarterlyAlertsCube.createdDate",
+				"filter": "createdDate"
+			  }
+		]
+	  },
+	  {
+		"id": "QuarterlyAlertsByGroup",
+		"applicableFilters": [
+		  
+		],
+		"category": "Alerts",
+		"langMapping": [
+		  {
+			"entity": "QuarterlyAlertsByGroups.applicable",
+			"langKey": "i18n_LBL_ALERTS_APPLICABLE"
+		  },
+		  {
+			"entity": "QuarterlyAlertsByGroups.following",
+			"langKey": "i18n_LBL_ALERTS_FOLLOWING"
+		  },
+		  {
+			"entity": "QuarterlyAlertsByGroups.open",
+			"langKey": "i18n_LBL_OPEN"
+		  },
+		  {
+			"entity": "QuarterlyAlertsByGroups.excluded",
+			"langKey": "i18n_LBL_ALERTS_EXCLUDED"
+		  },
+		  {
+			"entity": "QuarterlyAlertsByGroups.potentialImp",
+			"langKey": "i18n_LBL_POTENTIAL_IMP"
+		  },
+		  {
+			"entity": "QuarterlyAlertsByGroups.totalCount",
+			"langKey": "i18n_LBL_CONST_TOTAL"
+		  },
+		  {
+			"entity": "Groups.name",
+			"langKey": "i18n_LBL_GROUP_NAME"
+		  }
+		],
+		"meta": {
+		  "pivotConfig": {
+			"joinDateRange": false,
+			"fillMissingDates": true,
+			"y": [
+			  "measures"
+			],
+			"x": [
+			  "Groups.name",
+			  "QuarterlyAlertsByGroups.groupId"
+			]
+		  },
+		  "widgetType": "PerQuarter"
+		},
+		"name": "Quarterly Alerts By Groups",
+		"query": {
+		  "measures": [
+			"QuarterlyAlertsByGroups.applicable",
+			"QuarterlyAlertsByGroups.following",
+			"QuarterlyAlertsByGroups.open",
+			"QuarterlyAlertsByGroups.excluded",
+			"QuarterlyAlertsByGroups.potentialImp",
+			"QuarterlyAlertsByGroups.totalCount"
+		  ],
+		  "timeDimensions": [
+			{
+			  "dimension": "QuarterlyAlertsByGroups.created"
+			}
+		  ],
+		  "order": [
+			[
+			  "Groups.name",
+			  "asc"
+			]
+		  ],
+		  "dimensions": [
+			"Groups.name",
+			"QuarterlyAlertsByGroups.groupId"
+		  ],
+		  "filters": [
+			{
+			  "member": "Groups.name",
+			  "operator": "set"
+			}
+		  ]
+		},
+		"routerParams": [
+			{
+				"dimension": "QuarterlyAlertsByGroups.applicable",
+				"filter": "status"
+			  },
+			  {
+				"dimension": "QuarterlyAlertsByGroups.following",
+				"filter": "status"
+			  },
+			  {
+				"dimension": "QuarterlyAlertsByGroups.groupId",
+				"filter": "user"
+			  },
+			  {
+				"dimension": "QuarterlyAlertsByGroups.open",
+				"filter": "status"
+			  },
+			  {
+				"dimension": "QuarterlyAlertsByGroups.excluded",
+				"filter": "excludedAlerts",
+				"value": true
+			  },
+			  {
+				"dimension": "QuarterlyAlertsByGroups.potentialImp",
+				"filter": "iaCustomAttributes",
+				"value": {
+				  "IMPACT_LEVEL": [
+					"CB - N/A"
+				  ]
+				}
+			  },
+			  {
+				"dimension": "QuarterlyAlertsByGroups.potentialImp",
+				"filter": "status",
+				"value": [
+				  "Applicable",
+				  "Following"
+				]
+			  },
+			  {
+				"dimension": "QuarterlyAlertsByGroups.createdDate",
+				"filter": "createdDate"
+			  }
+		]
+	  }
 ]

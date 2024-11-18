@@ -10,7 +10,8 @@
 		],
 		"cube": "AlertsByRegulation",
 		"defaultTimeFilter": "Last 90 days",
-		"baseUrl": "/alerts/all-alerts"
+		"baseUrl": "/alerts/all-alerts",
+		"timeFilter": "publishedDate"
 	},
 	{
 		"id": "RegulatoryChangesTopic",
@@ -26,7 +27,8 @@
 		"filters": [
 			"alertTopicLaws"
 		],
-		"baseUrl": "/alerts/regulatory-changes"
+		"baseUrl": "/alerts/regulatory-changes",
+		"timeFilter": "publishedDate"
 	},
 	{
 		"id": "AlertsByCorpus",
@@ -39,7 +41,8 @@
 		],
 		"cube": "AlertsByCorpus",
 		"defaultTimeFilter": "Last 90 days",
-		"baseUrl": "/alerts/all-alerts"
+		"baseUrl": "/alerts/all-alerts",
+		"timeFilter": "publishedDate"
 	},
 	{
 		"id": "RegulatoryChangesCorpus",
@@ -55,7 +58,8 @@
 		"filters": [
 			"alertCategoryLaws"
 		],
-		"baseUrl": "/alerts/regulatory-changes"
+		"baseUrl": "/alerts/regulatory-changes",
+		"timeFilter": "publishedDate"
 	},
 	{
 		"id": "AlertsWorkflowStatus",
@@ -67,6 +71,7 @@
 			"line",
 			"column"
 		],
+		"dropDownFilters":["alertStatusGeneric"],
 		"baseUrl": "/alerts/all-alerts"
 	},
 	{
@@ -186,7 +191,8 @@
 		],
 		"cube": "AlertsByOwners",
 		"defaultTimeFilter": "Last 90 days",
-		"baseUrl": "/alerts/all-alerts"
+		"baseUrl": "/alerts/all-alerts",
+		"timeFilter": "createdDate"
 	},
 	{
 		"id": "BillsOwner",
@@ -202,7 +208,8 @@
 		"filters": [
 			"alertCategoryOwnersBills"
 		],
-		"baseUrl": "/alerts/horizon-scanning"
+		"baseUrl": "/alerts/horizon-scanning",
+		"timeFilter": "createdDate"
 	},
 	{
 		"id": "RegulatoryChangesOwner",
@@ -218,7 +225,8 @@
 		"filters": [
 			"alertCategoryOwnersLaws"
 		],
-		"baseUrl": "/alerts/regulatory-changes"
+		"baseUrl": "/alerts/regulatory-changes",
+		"timeFilter": "createdDate"
 	},
 	{
 		"id": "AgencyUpdatesOwner",
@@ -234,7 +242,8 @@
 		"filters": [
 			"alertCategoryOwnersNews"
 		],
-		"baseUrl": "/alerts/agency-updates"
+		"baseUrl": "/alerts/agency-updates",
+		"timeFilter": "createdDate"
 	},
 	{
 		"id": "AlertsByAgency",
@@ -248,7 +257,8 @@
 		],
 		"cube": "AlertsByAgency",
 		"defaultTimeFilter": "Last 30 days",
-		"baseUrl": "/alerts/all-alerts"
+		"baseUrl": "/alerts/all-alerts",
+		"timeFilter": "publishedDate"
 	},
 	{
 		"id": "BillsAgency",
@@ -265,7 +275,8 @@
 		"filters": [
 			"alertCategoryAgencyBills"
 		],
-		"baseUrl": "/alerts/horizon-scanning"
+		"baseUrl": "/alerts/horizon-scanning",
+		"timeFilter": "publishedDate"
 	},
 	{
 		"id": "RegulatoryChangesAgency",
@@ -282,7 +293,8 @@
 		"filters": [
 			"alertCategoryAgencyLaws"
 		],
-		"baseUrl": "/alerts/regulatory-changes"
+		"baseUrl": "/alerts/regulatory-changes",
+		"timeFilter": "publishedDate"
 	},
 	{
 		"id": "AgencyUpdatesAgency",
@@ -299,7 +311,8 @@
 		"filters": [
 			"alertCategoryAgencyNews"
 		],
-		"baseUrl": "/alerts/agency-updates"
+		"baseUrl": "/alerts/agency-updates",
+		"timeFilter": "publishedDate"
 	},
 	{
 		"id": "AgencyUpdatesAgencyFeed",
@@ -326,7 +339,8 @@
 		],
 		"cube": "BillsJurisdictionStatus",
 		"defaultTimeFilter": "Last 90 days",
-		"baseUrl": "/alerts/horizon-scanning"
+		"baseUrl": "/alerts/horizon-scanning",
+		"timeFilter": "publishedDate"
 	},
 	{
 		"id": "AlertsJurisdictionDocumentStatus",
@@ -346,7 +360,8 @@
 		],
 		"cube": "AlertsJurisdictionDocumentStatus",
 		"defaultTimeFilter": "Last 90 days",
-		"baseUrl": "/alerts/all-alerts"
+		"baseUrl": "/alerts/all-alerts",
+		"timeFilter": "publishedDate"
 	},
 	{
 		"id": "BillsDocStatus",
@@ -364,7 +379,8 @@
 		],
 		"cube": "BillsDocStatus",
 		"defaultTimeFilter": "Last 90 days",
-		"baseUrl": "/alerts/horizon-scanning"
+		"baseUrl": "/alerts/horizon-scanning",
+		"timeFilter": "publishedDate"
 	},
 	{
 		"id": "EnforcementActionReport",
@@ -377,7 +393,8 @@
 		],
 		"cube": "EnforcementActionReport",
 		"defaultTimeFilter": "Last 90 days",
-		"baseUrl": "/alerts/enforcement-actions"
+		"baseUrl": "/alerts/enforcement-actions",
+		"timeFilter": "effectiveDate"
 	},
 	{
 		"id": "PenaltiesAndRestitutions",
@@ -404,7 +421,8 @@
 		],
 		"cube": "ActionsByAgency",
 		"defaultTimeFilter": "Last 90 days",
-		"baseUrl": "/alerts/enforcement-actions"
+		"baseUrl": "/alerts/enforcement-actions",
+		"timeFilter": "effectiveDate"
 	},
 	{
 		"id": "NoOfEnforcementActions",
@@ -524,7 +542,8 @@
 			"column",
 			"table"
 		],
-		"baseUrl": "/alerts/impact-assessment"
+		"baseUrl": "/alerts/impact-assessment",
+		"timeFilter": "startDate"
 	},
 	{
 		"id": "ImpactAssessmentByStatus",
@@ -548,7 +567,8 @@
 			"line",
 			"column"
 		],
-		"baseUrl": "/alerts/impact-assessment"
+		"baseUrl": "/alerts/impact-assessment",
+		"timeFilter": "startDate"
 	},
 	{
 		"id": "ImpactAssessmentByImpactedTeam",
@@ -562,7 +582,8 @@
 			"column",
 			"table"
 		],
-		"baseUrl": "/alerts/impact-assessment"
+		"baseUrl": "/alerts/impact-assessment",
+		"timeFilter": "startDate"
 	},
 	{
 		"id": "AlertsByGroup",
@@ -578,7 +599,8 @@
 		],
 		"cube": "AlertsByGroups",
 		"defaultTimeFilter": "Last 90 days",
-		"baseUrl": "/alerts/all-alerts"
+		"baseUrl": "/alerts/all-alerts",
+		"timeFilter": "createdDate"
 	},
 	{
 		"id": "BillsGroup",
@@ -594,7 +616,8 @@
 		"filters": [
 			"alertCategoryGroupsBills"
 		],
-		"baseUrl": "/alerts/horizon-scanning"
+		"baseUrl": "/alerts/horizon-scanning",
+		"timeFilter": "createdDate"
 	},
 	{
 		"id": "RegulatoryChangesGroup",
@@ -610,7 +633,8 @@
 		"filters": [
 			"alertCategoryGroupsLaws"
 		],
-		"baseUrl": "/alerts/regulatory-changes"
+		"baseUrl": "/alerts/regulatory-changes",
+		"timeFilter": "createdDate"
 	},
 	{
 		"id": "AgencyUpdatesGroup",
@@ -626,7 +650,8 @@
 		"filters": [
 			"alertCategoryGroupsNews"
 		],
-		"baseUrl": "/alerts/agency-updates"
+		"baseUrl": "/alerts/agency-updates",
+		"timeFilter": "createdDate"
 	},
 	{
 		"id": "ComplianceCoverage",
@@ -660,7 +685,8 @@
 			"AUDocStatusGeneric"
 		],
 		"cube": "AgencyJurisdictionDocumentStatus",
-		"defaultTimeFilter": "Last 90 days"
+		"defaultTimeFilter": "Last 90 days",
+		"timeFilter": "publishedDate"
 	},
 	{
 		"id": "AgencyFeedCoverage",
@@ -679,8 +705,8 @@
 	},
 	{
 		"id": "AlertsApplicability",
-		"description": "Review SLA’s for Alert applicablity analysis workflow",
-		"name": "Alert Applicability SLA",
+		"description": "Review SLAs for Alert Applicability by Owners.",
+		"name": "Alert Applicability SLA by Owners",
 		"type": "System",
 		"viewType": [
 			"table",
@@ -691,12 +717,13 @@
 		],
 		"cube": "AlertsApplicability",
 		"baseUrl": "/alerts/all-alerts",
-		"defaultTimeFilter": "> 30 days"
+		"defaultTimeFilter": "> 30 days",
+		"timeFilter": "createdDate"
 	},
 	{
 		"id": "AlertsGroupApplicability",
-		"description": "Review group-wise SLAs Impact Assessment applicability analysis workflow",
-		"name": "Alert Applicability SLA by Groups",
+		"description": "Review SLAs for Alert Applicability by User Groups.",
+		"name": "Alert Applicability SLA by User Groups",
 		"type": "System",
 		"viewType": [
 			"table",
@@ -707,12 +734,13 @@
 		],
 		"cube": "AlertsGroupApplicability",
 		"baseUrl": "/alerts/all-alerts",
-		"defaultTimeFilter": "> 30 days"
+		"defaultTimeFilter": "> 30 days",
+		"timeFilter": "createdDate"
 	},
 	{
 		"id": "OpenAlertsOrIAsApplicability",
-		"description": "Review SLAs for Open Alerts or Impact Assessment Applicability analysis workflow",
-		"name": "Open Alerts or Impact Assessment Applicability SLA",
+		"description": "Review SLAs for Open Alerts or Impact Assessments by Owners.",
+		"name": "Open Alerts or Impact Assessments SLA by Owners",
 		"type": "System",
 		"viewType": [
 			"table"
@@ -722,12 +750,13 @@
 		],
 		"cube": "OpenAlertsOrIAsApplicability",
 		"baseUrl": "/alerts/all-alerts",
-		"defaultTimeFilter": "> 30 days"
+		"defaultTimeFilter": "> 30 days",
+		"timeFilter": "createdDate"
 	},
 	{
 		"id": "OpenAlertsOrIAsGroupApplicability",
-		"description": "Review group-wise SLAs for Open Alerts or Impact Assessment Applicability analysis workflow",
-		"name": "Open Alerts or Impact Assessment Applicability SLA by Groups",
+		"description": "Review SLAs for Open Alerts or Impact Assessments by User Groups.",
+		"name": "Open Alerts or Impact Assessments SLA by User Groups",
 		"type": "System",
 		"viewType": [
 			"table"
@@ -737,12 +766,13 @@
 		],
 		"cube": "OpenAlertsOrIAsGroupApplicability",
 		"baseUrl": "/alerts/all-alerts",
-		"defaultTimeFilter": "> 30 days"
+		"defaultTimeFilter": "> 30 days",
+		"timeFilter": "createdDate"
 	},
 	{
 		"id": "ImpactAssessmentApplicability",
-		"description": "Review SLA’s for Impact assessment applicability analysis workflow",
-		"name": "Impact Assessment Applicability SLA",
+		"description": "Review SLAs for Impact Assessments by Owners.",
+		"name": "Impact Assessment SLA by Owners",
 		"type": "System",
 		"viewType": [
 			"table",
@@ -753,12 +783,13 @@
 		],
 		"cube": "ImpactAssessmentApplicability",
 		"baseUrl": "/alerts/impact-assessment",
-		"defaultTimeFilter": "> 30 days"
+		"defaultTimeFilter": "> 30 days",
+		"timeFilter": "createdDate"
 	},
 	{
 		"id": "ImpactAssessmentGroupsApplicability",
-		"description": "Review group-wise SLAs Impact Assessment applicability analysis workflow",
-		"name": "Impact Assessment Applicability SLA by Groups",
+		"description": "Review SLAs for Impact Assessments by User Groups.",
+		"name": "Impact Assessment SLA by User Groups",
 		"type": "System",
 		"viewType": [
 			"table",
@@ -769,7 +800,8 @@
 		],
 		"cube": "ImpactAssessmentGroupsApplicability",
 		"baseUrl": "/alerts/impact-assessment",
-		"defaultTimeFilter": "> 30 days"
+		"defaultTimeFilter": "> 30 days",
+		"timeFilter": "createdDate"
 	},
 	{
 		"id": "MyImpacts",
@@ -783,7 +815,8 @@
 			"column",
 			"bar",
 			"table"
-		]
+		],
+		"timeFilter": "startDate"
 	},
 	{
 		"id": "MyAlerts",
@@ -808,7 +841,8 @@
 		"viewType": [
 			"pie"
 		],
-		"defaultTimeFilter": "> 30 days"
+		"defaultTimeFilter": "> 30 days",
+		"timeFilter": "createdDate"
 	},
 	{
 		"id": "MyImpactsSLA",
@@ -820,7 +854,8 @@
 		"viewType": [
 			"pie"
 		],
-		"defaultTimeFilter": "> 30 days"
+		"defaultTimeFilter": "> 30 days",
+		"timeFilter": "createdDate"
 	},
 	{
 		"id": "MyRisks",
@@ -889,7 +924,8 @@
 		"dropDownFilters": [
 			"combinedOwnersSLADocStatus"
 		],
-		"baseUrl": "/alerts/all-alerts"
+		"baseUrl": "/alerts/all-alerts",
+		"timeFilter": "createdDate"
 	},
 	{
 		"id": "CombinedGroupsSLA",
@@ -906,6 +942,45 @@
 		"dropDownFilters": [
 			"combinedGroupsSlaDocStatus"
 		],
-		"baseUrl": "/alerts/all-alerts"
+		"baseUrl": "/alerts/all-alerts",
+		"timeFilter": "createdDate"
+	},
+	{
+		"id": "QuarterlyAlerts",
+		"baseUrl": "/alerts/all-alerts",
+		"cube": "QuarterlyAlerts",
+		"defaultTimeFilter": "This Quarter",
+		"description": "Displays the number of alerts in each quarter",
+		"filters": [],
+		"name": "Quarterly Alerts",
+		"type": "System",
+		"viewType": [
+			"bar",
+			"column",
+			"pie"
+		],
+		"dropDownFilters": [
+			"quarterlyAlertsDocStatusFilter"
+		],
+		"timeFilter": "createdDate"
+	},
+	{
+		"id": "QuarterlyAlertsByGroup",
+		"baseUrl": "/alerts/all-alerts",
+		"cube": "QuarterlyAlertsByGroup",
+		"defaultTimeFilter": "This Quarter",
+		"description": "Displays the number of alerts in each quarter by User Groups",
+		"filters": [],
+		"name": "Quarterly Alerts by Group",
+		"type": "System",
+		"viewType": [
+			"table",
+			"column",
+			"line"
+		],
+		"dropDownFilters": [
+			"quarterlyByTeamDocStatusFilter"
+		],
+		"timeFilter": "createdDate"
 	}
 ]
