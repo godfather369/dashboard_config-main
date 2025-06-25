@@ -1,7 +1,7 @@
 [
 	{
 		"id": "AlertsByRegulation",
-		"description": "Displays the total number of alerts for each topic/masterdata",
+		"description": "Displays the total number of alerts for each topic",
 		"name": "Alerts by Topic",
 		"type": "System",
 		"viewType": [
@@ -87,6 +87,7 @@
 		"filters": [
 			"alertCategoryBills"
 		],
+		"dropDownFilters":["alertStatusGeneric"],
 		"baseUrl": "/alerts/horizon-scanning"
 	},
 	{
@@ -102,6 +103,7 @@
 		"filters": [
 			"alertCategoryLaws"
 		],
+		"dropDownFilters":["alertStatusGeneric"],
 		"baseUrl": "/alerts/regulatory-changes"
 	},
 	{
@@ -117,6 +119,7 @@
 		"filters": [
 			"alertCategoryNews"
 		],
+		"dropDownFilters":["alertStatusGeneric"],
 		"baseUrl": "/alerts/agency-updates"
 	},
 	{
@@ -441,8 +444,8 @@
 	},
 	{
 		"id": "AuthoritativeDocumentsImpacted",
-		"description": "Displays the total number of authoritative documents impacted by enforcement actions for the last 4 quarters",
-		"name": "Authoritative Documents Impacted",
+		"description": "Displays the total number of Authority documents impacted by enforcement actions for the last 4 quarters",
+		"name": "Authority Documents Impacted",
 		"type": "System",
 		"viewType": [
 			"table"
